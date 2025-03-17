@@ -5,7 +5,6 @@ class CanvasRenderer {
   constructor(options) {
     this.options = options;
     this.createDomElement();
-    console.log("ici???");
   }
 
   get ctx() {

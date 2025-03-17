@@ -53,7 +53,6 @@ class UIManager {
 
   clean() {
     this.uiComponents.forEach((child) => {
-      console.log("clean", this.scene);
       this.scene.remove(child);
     });
   }

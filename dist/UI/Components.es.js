@@ -142,7 +142,6 @@ class DebugDivRenderer extends UIRenderer {
     this.shape.rotation = this.uiComponent.transform.rotation;
     this.shape.shadowBlur = this.style.shadowBlur;
     this.shape.shadowColor = this.style.shadowColor;
-    console.log("render", this.style);
     this.shape.draw(viewer);
   }
 }

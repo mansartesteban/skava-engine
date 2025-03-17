@@ -53,7 +53,6 @@ class Viewer2d {
     this.renderer = new CanvasRenderer(this.options);
     this.size = this.options.size;
     this.render();
-    console.log("ici??? or here");
   }
   get ctx() {
     return this.renderer.ctx;
@@ -269,7 +268,6 @@ class CanvasRenderer {
     __publicField(this, "domElement");
     this.options = options;
     this.createDomElement();
-    console.log("ici???");
   }
   get ctx() {
     var _a;
