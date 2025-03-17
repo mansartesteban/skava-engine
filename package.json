@@ -7,8 +7,11 @@
   "style": "./dist/skava-core.css",
   "types": "./dist/index.d.ts",
   "exports": {
-    "import": "./dist/skava-engine.es.js",
-    "require": "./dist/skava-engine.umd.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/skava-engine.es.js",
+      "require": "./dist/skava-engine.umd.js"
+    }
   },
   "files": [
     "dist"
