@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "style": "./dist/skava-core.css",
-  "types": "./dist/skava-core.d.ts",
+  "types": "./dist/index.d.ts",
   "exports": {
     "import": "./dist/skava-engine.es.js",
     "require": "./dist/skava-engine.umd.js"
