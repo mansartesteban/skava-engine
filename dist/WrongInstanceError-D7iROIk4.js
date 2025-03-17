@@ -1,1 +1,0 @@
-"use strict";const t={IMPLEMENT:"The given parameter is not of type '%1'. %2 given."};class s extends Error{constructor(e,r){let n=t.IMPLEMENT.replace("%1",r.name).replace("%2",e.constructor.name);super(n),this.name=self.toString()}}exports.WrongInstanceError=s;

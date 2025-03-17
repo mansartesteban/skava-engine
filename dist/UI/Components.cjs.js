@@ -1,1 +1,215 @@
-"use strict";var m=Object.defineProperty;var C=(o,s,e)=>s in o?m(o,s,{enumerable:!0,configurable:!0,writable:!0,value:e}):o[s]=e;var n=(o,s,e)=>C(o,typeof s!="symbol"?s+"":s,e);Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});require("../Time-DqDcjPhP.js");require("uuid");const h=require("../Vector2-3guUrHSy.js"),t=require("../UIStyleHandler-9q15aJKE.js"),i=require("../Text-Gg5SDpHJ.js");class y extends t.UIComponent{setup(){super.setup(),this.addRenderer(new d)}}class R extends t.UIComponent{setup(){super.setup();let s=this.getComponent(t.UIStyle);s||(s=new t.UIStyle,this.addComponent(s)),s.setStyle({color:new h.RGB(255,255,255,1),borderRadius:32},!0);let e=new a(new t.UIStyle({height:64,borderRadius:[32,32,0,0],color:new h.RGB(220,220,220)})),r=new a(new t.UIStyle({borderRadius:[8],margin:[32],color:new h.RGB(255,255,255,1),align:"center"}));this.addChild(e),this.addChild(r),this.setDefaultSlot(r),this.setSlot("header",e),this.addRenderer(new p)}}class w extends t.UIComponent{setup(){super.setup(),this.addRenderer(new u)}}class a extends t.UIComponent{setup(){super.setup(),this.addRenderer(new p)}}class c extends t.UIComponent{constructor(){super(...arguments);n(this,"text")}setup(){super.setup(),this.reactToEvents=!1;let e=this.getComponent(t.UIStyle);e||(e=new t.UIStyle,this.addComponent(e)),e.setStyle({height:"100%"},!0),this.addRenderer(new l)}setText(e){this.text=e}}class d extends t.UIRenderer{constructor(){super(...arguments);n(this,"shape");n(this,"style")}setup(){super.setup(),this.style=this.uiComponent.getComponent(t.UIStyle),this.shape=new i.RoundSquare(this.uiComponent.transform.position,this.uiComponent.transform.size,this.style.borderRadius,this.style.color),this.shape=new i.Img("/button.png")}render(e){this.shape.position=this.uiComponent.transform.position,this.shape.size=this.uiComponent.transform.size,this.shape.color=this.style.color,this.shape.draw(e,this.uiComponent.transform)}}class f extends t.UIRenderer{constructor(){super(...arguments);n(this,"shape",new i.RoundSquare)}render(e){this.shape.position.sub(e.origin),this.shape.draw(e)}}class u extends t.UIRenderer{constructor(){super(...arguments);n(this,"shape");n(this,"style")}setup(){super.setup(),this.style=this.uiComponent.getComponent(t.UIStyle),this.shape=new i.RoundSquare(this.uiComponent.transform.position,this.uiComponent.transform.size,this.style.borderRadius,this.style.color)}render(e){this.shape.position=this.uiComponent.transform.position,this.shape.size=this.uiComponent.transform.size,this.shape.rotation=this.uiComponent.transform.rotation,this.shape.shadowBlur=this.style.shadowBlur,this.shape.shadowColor=this.style.shadowColor,console.log("render",this.style),this.shape.draw(e)}}class p extends t.UIRenderer{constructor(){super(...arguments);n(this,"shape");n(this,"style")}setup(){super.setup(),this.style=this.uiComponent.getComponent(t.UIStyle),this.shape=new i.RoundSquare(this.uiComponent.transform.position,this.uiComponent.transform.size,this.style.borderRadius,this.style.color)}render(e){this.shape.position=this.uiComponent.transform.position,this.shape.size=this.uiComponent.transform.size,this.shape.rotation=this.uiComponent.transform.rotation,this.shape.shadowBlur=this.style.shadowBlur,this.shape.shadowColor=this.style.shadowColor,this.shape.draw(e)}}class l extends t.UIRenderer{constructor(){super(...arguments);n(this,"shape");n(this,"style")}setup(){super.setup(),this.style=this.uiComponent.getComponent(t.UIStyle),this.shape=new i.Text(this.uiComponent.text,this.uiComponent.transform.position,this.style.color,this.style.fontSize),new FontFace("BraahOne","url(/BraahOne-Regular.ttf)").load().then(r=>{document.fonts.add(r)})}render(e){this.shape.position=this.uiComponent.transform.position,this.shape.size=this.uiComponent.transform.size,this.shape.position.x+=this.shape.size.x/2,this.shape.position.y+=this.shape.size.y/2,this.shape.draw(e)}}exports.MainLayout=t.MainLayout;exports.Button=y;exports.ButtonRenderer=d;exports.Card=R;exports.CardRenderer=f;exports.DebugDiv=w;exports.DebugDivRenderer=u;exports.Div=a;exports.DivRenderer=p;exports.Label=c;exports.LabelRenderer=l;
+"use strict";
+var __defProp = Object.defineProperty;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
+require("../Time-BnYKtbMg.js");
+require("uuid");
+const Vector2 = require("../Vector2-BBtao3PE.js");
+const UIStyleHandler = require("../UIStyleHandler-fO7Zx0Oy.js");
+const Text = require("../Text-DcL__UJb.js");
+class Button extends UIStyleHandler.UIComponent {
+  setup() {
+    super.setup();
+    this.addRenderer(new ButtonRenderer());
+  }
+}
+class Card extends UIStyleHandler.UIComponent {
+  setup() {
+    super.setup();
+    let uiStyle = this.getComponent(UIStyleHandler.UIStyle);
+    if (!uiStyle) {
+      uiStyle = new UIStyleHandler.UIStyle();
+      this.addComponent(uiStyle);
+    }
+    uiStyle.setStyle(
+      {
+        color: new Vector2.RGB(255, 255, 255, 1),
+        borderRadius: 32
+      },
+      true
+    );
+    let cardHeader = new Div(
+      new UIStyleHandler.UIStyle({
+        height: 64,
+        borderRadius: [32, 32, 0, 0],
+        color: new Vector2.RGB(220, 220, 220)
+      })
+    );
+    let cardBody = new Div(
+      new UIStyleHandler.UIStyle({
+        borderRadius: [8],
+        margin: [32],
+        color: new Vector2.RGB(255, 255, 255, 1),
+        align: "center"
+      })
+    );
+    this.addChild(cardHeader);
+    this.addChild(cardBody);
+    this.setDefaultSlot(cardBody);
+    this.setSlot("header", cardHeader);
+    this.addRenderer(new DivRenderer());
+  }
+}
+class DebugDiv extends UIStyleHandler.UIComponent {
+  setup() {
+    super.setup();
+    this.addRenderer(new DebugDivRenderer());
+  }
+}
+class Div extends UIStyleHandler.UIComponent {
+  setup() {
+    super.setup();
+    this.addRenderer(new DivRenderer());
+  }
+}
+class Label extends UIStyleHandler.UIComponent {
+  constructor() {
+    super(...arguments);
+    __publicField(this, "text");
+  }
+  setup() {
+    super.setup();
+    this.reactToEvents = false;
+    let uiStyle = this.getComponent(UIStyleHandler.UIStyle);
+    if (!uiStyle) {
+      uiStyle = new UIStyleHandler.UIStyle();
+      this.addComponent(uiStyle);
+    }
+    uiStyle.setStyle(
+      {
+        height: "100%"
+      },
+      true
+    );
+    this.addRenderer(new LabelRenderer());
+  }
+  setText(text) {
+    this.text = text;
+  }
+}
+class ButtonRenderer extends UIStyleHandler.UIRenderer {
+  constructor() {
+    super(...arguments);
+    __publicField(this, "shape");
+    __publicField(this, "style");
+  }
+  setup() {
+    super.setup();
+    this.style = this.uiComponent.getComponent(UIStyleHandler.UIStyle);
+    this.shape = new Text.RoundSquare(
+      this.uiComponent.transform.position,
+      this.uiComponent.transform.size,
+      this.style.borderRadius,
+      this.style.color
+    );
+    this.shape = new Text.Img("/button.png");
+  }
+  render(viewer) {
+    this.shape.position = this.uiComponent.transform.position;
+    this.shape.size = this.uiComponent.transform.size;
+    this.shape.color = this.style.color;
+    this.shape.draw(viewer, this.uiComponent.transform);
+  }
+}
+class CardRenderer extends UIStyleHandler.UIRenderer {
+  constructor() {
+    super(...arguments);
+    __publicField(this, "shape", new Text.RoundSquare());
+  }
+  render(viewer) {
+    this.shape.position.sub(viewer.origin);
+    this.shape.draw(viewer);
+  }
+}
+class DebugDivRenderer extends UIStyleHandler.UIRenderer {
+  constructor() {
+    super(...arguments);
+    __publicField(this, "shape");
+    __publicField(this, "style");
+  }
+  setup() {
+    super.setup();
+    this.style = this.uiComponent.getComponent(UIStyleHandler.UIStyle);
+    this.shape = new Text.RoundSquare(
+      this.uiComponent.transform.position,
+      this.uiComponent.transform.size,
+      this.style.borderRadius,
+      this.style.color
+    );
+  }
+  render(viewer) {
+    this.shape.position = this.uiComponent.transform.position;
+    this.shape.size = this.uiComponent.transform.size;
+    this.shape.rotation = this.uiComponent.transform.rotation;
+    this.shape.shadowBlur = this.style.shadowBlur;
+    this.shape.shadowColor = this.style.shadowColor;
+    console.log("render", this.style);
+    this.shape.draw(viewer);
+  }
+}
+class DivRenderer extends UIStyleHandler.UIRenderer {
+  constructor() {
+    super(...arguments);
+    __publicField(this, "shape");
+    __publicField(this, "style");
+  }
+  setup() {
+    super.setup();
+    this.style = this.uiComponent.getComponent(UIStyleHandler.UIStyle);
+    this.shape = new Text.RoundSquare(
+      this.uiComponent.transform.position,
+      this.uiComponent.transform.size,
+      this.style.borderRadius,
+      this.style.color
+    );
+  }
+  render(viewer) {
+    this.shape.position = this.uiComponent.transform.position;
+    this.shape.size = this.uiComponent.transform.size;
+    this.shape.rotation = this.uiComponent.transform.rotation;
+    this.shape.shadowBlur = this.style.shadowBlur;
+    this.shape.shadowColor = this.style.shadowColor;
+    this.shape.draw(viewer);
+  }
+}
+class LabelRenderer extends UIStyleHandler.UIRenderer {
+  constructor() {
+    super(...arguments);
+    __publicField(this, "shape");
+    __publicField(this, "style");
+  }
+  setup() {
+    super.setup();
+    this.style = this.uiComponent.getComponent(UIStyleHandler.UIStyle);
+    this.shape = new Text.Text(
+      this.uiComponent.text,
+      this.uiComponent.transform.position,
+      this.style.color,
+      this.style.fontSize
+    );
+    let f = new FontFace("BraahOne", "url(/BraahOne-Regular.ttf)");
+    f.load().then((font) => {
+      document.fonts.add(font);
+    });
+  }
+  render(viewer) {
+    this.shape.position = this.uiComponent.transform.position;
+    this.shape.size = this.uiComponent.transform.size;
+    this.shape.position.x += this.shape.size.x / 2;
+    this.shape.position.y += this.shape.size.y / 2;
+    this.shape.draw(viewer);
+  }
+}
+exports.MainLayout = UIStyleHandler.MainLayout;
+exports.Button = Button;
+exports.ButtonRenderer = ButtonRenderer;
+exports.Card = Card;
+exports.CardRenderer = CardRenderer;
+exports.DebugDiv = DebugDiv;
+exports.DebugDivRenderer = DebugDivRenderer;
+exports.Div = Div;
+exports.DivRenderer = DivRenderer;
+exports.Label = Label;
+exports.LabelRenderer = LabelRenderer;
+//# sourceMappingURL=Components.cjs.js.map

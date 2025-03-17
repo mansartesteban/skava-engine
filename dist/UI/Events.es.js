@@ -1,14 +1,20 @@
-import { C as n } from "../CommandClick-uXVskFqn.mjs";
-class c extends n {
-  constructor(i) {
-    super(), this.elements = i;
+import { C as CommandClick } from "../CommandClick-ClTGnPFM.mjs";
+class OnClick extends CommandClick {
+  constructor(elements) {
+    super();
+    this.elements = elements;
   }
-  execute({ mouse: i }) {
-    i = i.clone();
-    let s = this.elements.find((r) => r.transform.position.x + r.scene.viewer.origin.x <= i.x && r.transform.position.x + r.scene.viewer.origin.x + r.transform.size.x >= i.x && r.transform.position.y + r.scene.viewer.origin.y <= i.y && r.transform.position.y + r.scene.viewer.origin.y + r.transform.size.y >= i.y && r.reactToEvents);
-    s && s.trigger("click", { mouse: i, element: s });
+  execute({ mouse }) {
+    mouse = mouse.clone();
+    let triggeredElement = this.elements.find((element) => {
+      return element.transform.position.x + element.scene.viewer.origin.x <= mouse.x && element.transform.position.x + element.scene.viewer.origin.x + element.transform.size.x >= mouse.x && element.transform.position.y + element.scene.viewer.origin.y <= mouse.y && element.transform.position.y + element.scene.viewer.origin.y + element.transform.size.y >= mouse.y && element.reactToEvents;
+    });
+    if (triggeredElement) {
+      triggeredElement.trigger("click", { mouse, element: triggeredElement });
+    }
   }
 }
 export {
-  c as OnClick
+  OnClick
 };
+//# sourceMappingURL=Events.es.js.map

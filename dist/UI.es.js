@@ -1,27 +1,32 @@
-var h = Object.defineProperty;
-var r = (t) => {
-  throw TypeError(t);
+var __defProp = Object.defineProperty;
+var __typeError = (msg) => {
+  throw TypeError(msg);
 };
-var c = (t, o, e) => o in t ? h(t, o, { enumerable: !0, configurable: !0, writable: !0, value: e }) : t[o] = e;
-var n = (t, o, e) => c(t, typeof o != "symbol" ? o + "" : o, e), m = (t, o, e) => o.has(t) || r("Cannot " + e);
-var s = (t, o, e) => (m(t, o, "read from private field"), e ? e.call(t) : o.get(t)), l = (t, o, e) => o.has(t) ? r("Cannot add the same private member more than once") : o instanceof WeakSet ? o.add(t) : o.set(t, e);
-import { U as R } from "./UIAnimation-B_15Hu3W.mjs";
-import { M as u, U as d, a as f } from "./UIStyleHandler-jb-sOgJG.mjs";
-import { b as k, c as v } from "./UIStyleHandler-jb-sOgJG.mjs";
-import "./Time-DerQyAzN.mjs";
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+var __accessCheck = (obj, member, msg) => member.has(obj) || __typeError("Cannot " + msg);
+var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
+var __privateAdd = (obj, member, value) => member.has(obj) ? __typeError("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+var _uiComponents;
+import { U } from "./UIAnimation-CD5YFu-5.mjs";
+import { M as MainLayout, U as UIStyle, a as UIComponent } from "./UIStyleHandler-BrxVR-qc.mjs";
+import { b, c } from "./UIStyleHandler-BrxVR-qc.mjs";
+import "./Time-D6jb6SoV.mjs";
 import "uuid";
-import { C as p } from "./Controls-C8IZ0c7f.mjs";
-import { R as a } from "./Vector2-DsmbReYL.mjs";
-import { OnClick as g } from "./UI/Events.es.js";
-var i;
-class b {
-  constructor(o) {
-    l(this, i, []);
-    n(this, "controls");
-    n(this, "scene");
-    n(this, "mainLayout");
-    this.controls = new p(), this.controls.registerCommand(new g(s(this, i))), this.scene = o, this.mainLayout = new u(
-      new d(
+import { C as Controls } from "./Controls-COyvZOen.mjs";
+import { R as RGB } from "./Vector2-Dy-12kp6.mjs";
+import { OnClick } from "./UI/Events.es.js";
+class UIManager {
+  constructor(scene) {
+    __privateAdd(this, _uiComponents, []);
+    __publicField(this, "controls");
+    __publicField(this, "scene");
+    __publicField(this, "mainLayout");
+    this.controls = new Controls();
+    this.controls.registerCommand(new OnClick(__privateGet(this, _uiComponents)));
+    this.scene = scene;
+    this.mainLayout = new MainLayout(
+      new UIStyle(
         {
           borderRadius: 0,
           margin: 0,
@@ -31,40 +36,48 @@ class b {
           height: "auto",
           align: "left",
           layout: "relative",
-          color: a.White,
-          textColor: a.Black,
+          color: RGB.White,
+          textColor: RGB.Black,
           // font,
           fontWeight: 500,
           borderWidth: 1,
-          borderColor: a.Black,
+          borderColor: RGB.Black,
           shadowColor: null,
           shadowBlur: null,
           shadowPosition: null,
           shadowSize: null,
           direction: "vertical"
         },
-        !0
+        true
       )
-    ), this.mainLayout.uiManager = this, this.mainLayout.scene = this.scene, this.scene.add(this.mainLayout);
+    );
+    this.mainLayout.uiManager = this;
+    this.mainLayout.scene = this.scene;
+    this.scene.add(this.mainLayout);
   }
   get uiComponents() {
-    return s(this, i);
+    return __privateGet(this, _uiComponents);
   }
   clean() {
-    this.uiComponents.forEach((o) => {
-      console.log("clean", this.scene), this.scene.remove(o);
+    this.uiComponents.forEach((child) => {
+      console.log("clean", this.scene);
+      this.scene.remove(child);
     });
   }
-  add(o) {
-    o instanceof f && (o.uiManager = this, s(this, i).unshift(o));
+  add(uiComponent) {
+    if (uiComponent instanceof UIComponent) {
+      uiComponent.uiManager = this;
+      __privateGet(this, _uiComponents).unshift(uiComponent);
+    }
   }
 }
-i = new WeakMap();
+_uiComponents = new WeakMap();
 export {
-  R as UIAnimation,
-  f as UIComponent,
-  b as UIManager,
-  k as UIRenderer,
-  d as UIStyle,
-  v as UIStyleHandler
+  U as UIAnimation,
+  UIComponent,
+  UIManager,
+  b as UIRenderer,
+  UIStyle,
+  c as UIStyleHandler
 };
+//# sourceMappingURL=UI.es.js.map

@@ -14,6 +14,7 @@ class Viewer2d {
     this.renderer = new CanvasRenderer(this.options);
     this.size = this.options.size;
     this.render();
+    console.log("ici??? or here");
   }
 
   get ctx() {

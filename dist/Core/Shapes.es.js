@@ -1,417 +1,574 @@
-var ot = Object.defineProperty;
-var st = (n) => {
-  throw TypeError(n);
+var __defProp = Object.defineProperty;
+var __typeError = (msg) => {
+  throw TypeError(msg);
 };
-var rt = (n, t, s) => t in n ? ot(n, t, { enumerable: !0, configurable: !0, writable: !0, value: s }) : n[t] = s;
-var U = (n, t, s) => rt(n, typeof t != "symbol" ? t + "" : t, s), it = (n, t, s) => t.has(n) || st("Cannot " + s);
-var i = (n, t, s) => (it(n, t, "read from private field"), s ? s.call(n) : t.get(n)), h = (n, t, s) => t.has(n) ? st("Cannot add the same private member more than once") : t instanceof WeakSet ? t.add(n) : t.set(n, s), e = (n, t, s, r) => (it(n, t, "write to private field"), r ? r.call(n, s) : t.set(n, s), s);
-var et = (n, t, s, r) => ({
-  set _(o) {
-    e(n, t, o, s);
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+var __accessCheck = (obj, member, msg) => member.has(obj) || __typeError("Cannot " + msg);
+var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
+var __privateAdd = (obj, member, value) => member.has(obj) ? __typeError("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
+var __privateWrapper = (obj, member, setter, getter) => ({
+  set _(value) {
+    __privateSet(obj, member, value, setter);
   },
   get _() {
-    return i(n, t, r);
+    return __privateGet(obj, member, getter);
   }
 });
-import "../Time-DerQyAzN.mjs";
+var _position, _radius, _color, _angle, _direction, _options, _position2, _radius2, _color2, _angle2, _direction2, _from, _to, _color3, _thickness, _frame, _from2, _to2, _color4, _dashes, _thickness2, _options2, _points, _color5, _dashes2, _thickness3, _columns, _rows, _count, _scale, _current, _current2, _position3, _size, _color6;
+import "../Time-D6jb6SoV.mjs";
 import "uuid";
-import { V as a, R as Z, a as X } from "../Vector2-DsmbReYL.mjs";
-import { D as N, I as ht } from "../Text-CBZArl-s.mjs";
-import { R as zt, T as _t } from "../Text-CBZArl-s.mjs";
-import { clamp as nt } from "../Utils/Numeric.es.js";
-import { T as lt } from "../TransformComponent-CwHP_qGK.mjs";
-var D, x, S, g, k, u;
-class wt {
-  constructor(t = new a(), s = 1, r = new Z(), o = null, l = null, p = {}) {
-    h(this, D);
-    h(this, x);
-    h(this, S);
-    h(this, g);
-    h(this, k);
-    h(this, u);
-    e(this, D, t), e(this, x, s), e(this, S, r), this.angle = o, this.direction = l, e(this, u, p);
+import { V as Vector2, R as RGB, a as Rotation } from "../Vector2-Dy-12kp6.mjs";
+import { D as Draw, I as Img } from "../Text-hadv7THv.mjs";
+import { R, T } from "../Text-hadv7THv.mjs";
+import { clamp } from "../Utils/Numeric.es.js";
+import { T as TransformComponent } from "../TransformComponent-bBQZJGxr.mjs";
+class Circle {
+  constructor(position = new Vector2(), radius = 1, color = new RGB(), angle = null, direction = null, options = {}) {
+    __privateAdd(this, _position);
+    __privateAdd(this, _radius);
+    __privateAdd(this, _color);
+    __privateAdd(this, _angle);
+    __privateAdd(this, _direction);
+    __privateAdd(this, _options);
+    __privateSet(this, _position, position);
+    __privateSet(this, _radius, radius);
+    __privateSet(this, _color, color);
+    this.angle = angle;
+    this.direction = direction;
+    __privateSet(this, _options, options);
   }
   get position() {
-    return i(this, D);
+    return __privateGet(this, _position);
   }
   get radius() {
-    return i(this, x);
+    return __privateGet(this, _radius);
   }
   get color() {
-    return i(this, S);
+    return __privateGet(this, _color);
   }
   get angle() {
-    return i(this, g);
+    return __privateGet(this, _angle);
   }
   get direction() {
-    return i(this, k);
+    return __privateGet(this, _direction);
   }
   get options() {
-    return i(this, u);
+    return __privateGet(this, _options);
   }
-  set position(t) {
-    e(this, D, t);
+  set position(position) {
+    __privateSet(this, _position, position);
   }
-  set radius(t) {
-    e(this, x, t);
+  set radius(radius) {
+    __privateSet(this, _radius, radius);
   }
-  set color(t) {
-    e(this, S, t);
+  set color(color) {
+    __privateSet(this, _color, color);
   }
-  set angle(t) {
-    t || (t = new X(Math.PI * 2, !0)), e(this, g, t);
+  set angle(angle) {
+    if (!angle) {
+      angle = new Rotation(Math.PI * 2, true);
+    }
+    __privateSet(this, _angle, angle);
   }
-  set direction(t) {
-    t || (t = new a()), e(this, k, t);
+  set direction(direction) {
+    if (!direction) {
+      direction = new Vector2();
+    }
+    __privateSet(this, _direction, direction);
   }
-  set options(t) {
-    e(this, u, t);
+  set options(options) {
+    __privateSet(this, _options, options);
   }
-  draw(t) {
-    let s = t.ctx;
-    N.draw(t, () => (s.fillStyle = i(this, S)._toString, i(this, u).shadowBlur && (s.shadowBlur = i(this, u).shadowBlur), i(this, u).shadowColor && (s.shadowColor = i(this, u).shadowColor._toString), s.arc(
-      this.position.x,
-      this.position.y,
-      i(this, x),
-      i(this, k).rotation.angle - i(this, g).angle / 2,
-      i(this, k).rotation.angle + i(this, g).angle / 2
-    ), i(this, g).angle % (2 * Math.PI) !== 0 && s.lineTo(this.position.x, this.position.y), s.fill(), i(this, u).shadowBlur && (s.shadowBlur = 0), i(this, u).shadowColor && (s.shadowColor = ""), ["fillStyle"]));
-  }
-}
-D = new WeakMap(), x = new WeakMap(), S = new WeakMap(), g = new WeakMap(), k = new WeakMap(), u = new WeakMap();
-var T, C, w, f, m;
-class mt {
-  constructor(t = new a(), s = 1, r = new (i(this, w))(), o = new X(Math.PI * 2, !0), l = new a()) {
-    h(this, T);
-    h(this, C);
-    h(this, w);
-    h(this, f);
-    h(this, m);
-    e(this, T, t), e(this, C, s), e(this, w, r), e(this, f, o), e(this, m, l);
-  }
-  get position() {
-    return i(this, T);
-  }
-  get radius() {
-    return i(this, C);
-  }
-  get color() {
-    return i(this, w);
-  }
-  get angle() {
-    return i(this, f);
-  }
-  get direction() {
-    return i(this, m);
-  }
-  set position(t) {
-    e(this, T, t);
-  }
-  set radius(t) {
-    e(this, C, t);
-  }
-  set color(t) {
-    e(this, w, t);
-  }
-  set angle(t) {
-    e(this, f, t);
-  }
-  set direction(t) {
-    e(this, m, t);
-  }
-  draw(t) {
-    let s = t.ctx;
-    N.draw(t, () => {
-      s.fillStyle = i(this, w)._toString;
-      let r = i(this, T);
-      return s.arc(
-        r.x,
-        r.y,
-        i(this, C),
-        i(this, m).rotation.angle - i(this, f).angle / 2,
-        i(this, m).rotation.angle + i(this, f).angle / 2
-      ), i(this, f).angle % (2 * Math.PI) !== 0 && s.lineTo(r.x, r.y), s.fill(), ["fillStyle"];
+  draw(viewer) {
+    let ctx = viewer.ctx;
+    Draw.draw(viewer, () => {
+      ctx.fillStyle = __privateGet(this, _color)._toString;
+      if (__privateGet(this, _options).shadowBlur) {
+        ctx.shadowBlur = __privateGet(this, _options).shadowBlur;
+      }
+      if (__privateGet(this, _options).shadowColor) {
+        ctx.shadowColor = __privateGet(this, _options).shadowColor._toString;
+      }
+      ctx.arc(
+        this.position.x,
+        this.position.y,
+        __privateGet(this, _radius),
+        __privateGet(this, _direction).rotation.angle - __privateGet(this, _angle).angle / 2,
+        __privateGet(this, _direction).rotation.angle + __privateGet(this, _angle).angle / 2
+      );
+      if (__privateGet(this, _angle).angle % (2 * Math.PI) !== 0) {
+        ctx.lineTo(this.position.x, this.position.y);
+      }
+      ctx.fill();
+      if (__privateGet(this, _options).shadowBlur) {
+        ctx.shadowBlur = 0;
+      }
+      if (__privateGet(this, _options).shadowColor) {
+        ctx.shadowColor = "";
+      }
+      return ["fillStyle"];
     });
   }
 }
-T = new WeakMap(), C = new WeakMap(), w = new WeakMap(), f = new WeakMap(), m = new WeakMap();
-var M, W, L, P, Y;
-class yt {
-  constructor(t = new a(), s = new a(), r = Z.Fuchsia, o = 5) {
-    h(this, M);
-    h(this, W);
-    h(this, L);
-    h(this, P);
-    h(this, Y, 0);
-    e(this, M, t), e(this, W, s), e(this, L, r), e(this, P, o);
+_position = new WeakMap();
+_radius = new WeakMap();
+_color = new WeakMap();
+_angle = new WeakMap();
+_direction = new WeakMap();
+_options = new WeakMap();
+class CircleScreen {
+  constructor(position = new Vector2(), radius = 1, color = new (__privateGet(this, _color2))(), angle = new Rotation(Math.PI * 2, true), direction = new Vector2()) {
+    __privateAdd(this, _position2);
+    __privateAdd(this, _radius2);
+    __privateAdd(this, _color2);
+    __privateAdd(this, _angle2);
+    __privateAdd(this, _direction2);
+    __privateSet(this, _position2, position);
+    __privateSet(this, _radius2, radius);
+    __privateSet(this, _color2, color);
+    __privateSet(this, _angle2, angle);
+    __privateSet(this, _direction2, direction);
+  }
+  get position() {
+    return __privateGet(this, _position2);
+  }
+  get radius() {
+    return __privateGet(this, _radius2);
+  }
+  get color() {
+    return __privateGet(this, _color2);
+  }
+  get angle() {
+    return __privateGet(this, _angle2);
+  }
+  get direction() {
+    return __privateGet(this, _direction2);
+  }
+  set position(position) {
+    __privateSet(this, _position2, position);
+  }
+  set radius(radius) {
+    __privateSet(this, _radius2, radius);
+  }
+  set color(color) {
+    __privateSet(this, _color2, color);
+  }
+  set angle(angle) {
+    __privateSet(this, _angle2, angle);
+  }
+  set direction(direction) {
+    __privateSet(this, _direction2, direction);
+  }
+  draw(viewer) {
+    let ctx = viewer.ctx;
+    Draw.draw(viewer, () => {
+      ctx.fillStyle = __privateGet(this, _color2)._toString;
+      let positionOnScreen = __privateGet(this, _position2);
+      ctx.arc(
+        positionOnScreen.x,
+        positionOnScreen.y,
+        __privateGet(this, _radius2),
+        __privateGet(this, _direction2).rotation.angle - __privateGet(this, _angle2).angle / 2,
+        __privateGet(this, _direction2).rotation.angle + __privateGet(this, _angle2).angle / 2
+      );
+      if (__privateGet(this, _angle2).angle % (2 * Math.PI) !== 0) {
+        ctx.lineTo(positionOnScreen.x, positionOnScreen.y);
+      }
+      ctx.fill();
+      return ["fillStyle"];
+    });
+  }
+}
+_position2 = new WeakMap();
+_radius2 = new WeakMap();
+_color2 = new WeakMap();
+_angle2 = new WeakMap();
+_direction2 = new WeakMap();
+class DebugVector {
+  constructor(from = new Vector2(), to = new Vector2(), color = RGB.Fuchsia, thickness = 5) {
+    __privateAdd(this, _from);
+    __privateAdd(this, _to);
+    __privateAdd(this, _color3);
+    __privateAdd(this, _thickness);
+    __privateAdd(this, _frame, 0);
+    __privateSet(this, _from, from);
+    __privateSet(this, _to, to);
+    __privateSet(this, _color3, color);
+    __privateSet(this, _thickness, thickness);
   }
   get from() {
-    return i(this, M);
+    return __privateGet(this, _from);
   }
   get to() {
-    return i(this, W);
+    return __privateGet(this, _to);
   }
-  set from(t) {
-    e(this, M, t);
+  set from(from) {
+    __privateSet(this, _from, from);
   }
-  set to(t) {
-    e(this, W, t);
+  set to(to) {
+    __privateSet(this, _to, to);
   }
-  draw(t) {
-    let s = t.ctx;
-    N.draw(t, () => {
-      s.strokeStyle = i(this, L)._toString, s.lineWidth = i(this, P), s.fillStyle = i(this, L)._toString;
-      let r = nt(i(this, P) * 3, 10, 1e3);
-      if (a.from(this.from).to(this.to).length <= r) {
-        let _ = i(this, Y) % 4 < 2 ? "#ff0000" : "#ffffff";
-        s.strokeStyle = _, s.fillStyle = _;
+  draw(viewer) {
+    let ctx = viewer.ctx;
+    Draw.draw(viewer, () => {
+      ctx.strokeStyle = __privateGet(this, _color3)._toString;
+      ctx.lineWidth = __privateGet(this, _thickness);
+      ctx.fillStyle = __privateGet(this, _color3)._toString;
+      let arrowSize = clamp(__privateGet(this, _thickness) * 3, 10, 1e3);
+      if (Vector2.from(this.from).to(this.to).length <= arrowSize) {
+        let color = __privateGet(this, _frame) % 4 < 2 ? "#ff0000" : "#ffffff";
+        ctx.strokeStyle = color;
+        ctx.fillStyle = color;
       }
       this.to.add(
-        a.from(this.from).to(this.to).normalized.multiply(-r)
+        Vector2.from(this.from).to(this.to).normalized.multiply(-arrowSize)
       );
-      let o = this.to.clone().add(
-        a.from(this.from).to(this.to).normalized.multiply(r)
-      ), l = a.from(this.to).to(this.from).normalize(), p = r * 2, Q = l.clone().rotate(new X(Math.PI * 2)).multiply(p).add(this.to), z = l.clone().rotate(new X(-Math.PI * 2)).multiply(p).add(this.to);
-      return s.moveTo(this.from.x, this.from.y), s.lineTo(this.to.x, this.to.y), s.stroke(), s.moveTo(o.x, o.y), s.lineTo(Q.x, Q.y), s.lineTo(z.x, z.y), s.lineTo(o.x, o.y), s.fill(), ["strokeStyle", "lineWidth", "fillStyle"];
-    }), et(this, Y)._++;
+      let front = this.to.clone().add(
+        Vector2.from(this.from).to(this.to).normalized.multiply(arrowSize)
+      );
+      let frontDirection = Vector2.from(this.to).to(this.from).normalize();
+      let arrowSides = arrowSize * 2;
+      let left = frontDirection.clone().rotate(new Rotation(Math.PI * 2)).multiply(arrowSides).add(this.to);
+      let right = frontDirection.clone().rotate(new Rotation(-Math.PI * 2)).multiply(arrowSides).add(this.to);
+      ctx.moveTo(this.from.x, this.from.y);
+      ctx.lineTo(this.to.x, this.to.y);
+      ctx.stroke();
+      ctx.moveTo(front.x, front.y);
+      ctx.lineTo(left.x, left.y);
+      ctx.lineTo(right.x, right.y);
+      ctx.lineTo(front.x, front.y);
+      ctx.fill();
+      return ["strokeStyle", "lineWidth", "fillStyle"];
+    });
+    __privateWrapper(this, _frame)._++;
   }
 }
-M = new WeakMap(), W = new WeakMap(), L = new WeakMap(), P = new WeakMap(), Y = new WeakMap();
-var b, q, v, B, V, d;
-class xt {
-  constructor(t = new a(), s = new a(), r = new Z(), o = 1, l = [], p = {}) {
-    h(this, b);
-    h(this, q);
-    h(this, v);
-    h(this, B);
-    h(this, V);
-    h(this, d);
-    e(this, b, t), e(this, q, s), e(this, v, r), e(this, B, l), e(this, V, o), e(this, d, p);
+_from = new WeakMap();
+_to = new WeakMap();
+_color3 = new WeakMap();
+_thickness = new WeakMap();
+_frame = new WeakMap();
+class Line {
+  constructor(from = new Vector2(), to = new Vector2(), color = new RGB(), thickness = 1, dashes = [], options = {}) {
+    __privateAdd(this, _from2);
+    __privateAdd(this, _to2);
+    __privateAdd(this, _color4);
+    __privateAdd(this, _dashes);
+    __privateAdd(this, _thickness2);
+    __privateAdd(this, _options2);
+    __privateSet(this, _from2, from);
+    __privateSet(this, _to2, to);
+    __privateSet(this, _color4, color);
+    __privateSet(this, _dashes, dashes);
+    __privateSet(this, _thickness2, thickness);
+    __privateSet(this, _options2, options);
   }
   get from() {
-    return i(this, b);
+    return __privateGet(this, _from2);
   }
   get to() {
-    return i(this, q);
+    return __privateGet(this, _to2);
   }
   get color() {
-    return i(this, v);
+    return __privateGet(this, _color4);
   }
   get dashes() {
-    return i(this, B);
+    return __privateGet(this, _dashes);
   }
   get thickness() {
-    return i(this, V);
+    return __privateGet(this, _thickness2);
   }
   get options() {
-    return i(this, d);
+    return __privateGet(this, _options2);
   }
-  set from(t) {
-    e(this, b, t);
+  set from(from) {
+    __privateSet(this, _from2, from);
   }
-  set to(t) {
-    e(this, q, t);
+  set to(to) {
+    __privateSet(this, _to2, to);
   }
-  set color(t) {
-    e(this, v, t);
+  set color(color) {
+    __privateSet(this, _color4, color);
   }
-  set dashes(t) {
-    e(this, B, t);
+  set dashes(dashes) {
+    __privateSet(this, _dashes, dashes);
   }
-  set thickness(t) {
-    e(this, V, t);
+  set thickness(thickness) {
+    __privateSet(this, _thickness2, thickness);
   }
-  set options(t) {
-    e(this, d, t);
+  set options(options) {
+    __privateSet(this, _options2, options);
   }
-  draw(t) {
-    let s = t.ctx;
-    N.draw(t, () => {
-      const r = i(this, B).map(
-        (o) => typeof o == "string" ? parseInt(o) : o
+  draw(viewer) {
+    let ctx = viewer.ctx;
+    Draw.draw(viewer, () => {
+      const dashes = __privateGet(this, _dashes).map(
+        (dash) => typeof dash === "string" ? parseInt(dash) : dash
       );
-      return i(this, d).shadowBlur && (s.shadowBlur = i(this, d).shadowBlur), i(this, d).shadowColor && (s.shadowColor = i(this, d).shadowColor._toString), s.lineCap = "round", s.setLineDash(r), s.strokeStyle = this.color._toString, s.lineWidth = this.thickness, s.moveTo(this.from.x, this.from.y), s.lineTo(this.to.x, this.to.y), s.stroke(), i(this, d).shadowBlur && (s.shadowBlur = 0), i(this, d).shadowColor && (s.shadowColor = ""), ["strokeStyle", "setLineDash", "lineWidth"];
+      if (__privateGet(this, _options2).shadowBlur) {
+        ctx.shadowBlur = __privateGet(this, _options2).shadowBlur;
+      }
+      if (__privateGet(this, _options2).shadowColor) {
+        ctx.shadowColor = __privateGet(this, _options2).shadowColor._toString;
+      }
+      ctx.lineCap = "round";
+      ctx.setLineDash(dashes);
+      ctx.strokeStyle = this.color._toString;
+      ctx.lineWidth = this.thickness;
+      ctx.moveTo(this.from.x, this.from.y);
+      ctx.lineTo(this.to.x, this.to.y);
+      ctx.stroke();
+      if (__privateGet(this, _options2).shadowBlur) {
+        ctx.shadowBlur = 0;
+      }
+      if (__privateGet(this, _options2).shadowColor) {
+        ctx.shadowColor = "";
+      }
+      return ["strokeStyle", "setLineDash", "lineWidth"];
     });
   }
 }
-b = new WeakMap(), q = new WeakMap(), v = new WeakMap(), B = new WeakMap(), V = new WeakMap(), d = new WeakMap();
-var H, E, I, F;
-class St {
-  constructor(t = [], s = new Z(), r = 1, o = []) {
-    h(this, H);
-    h(this, E);
-    h(this, I);
-    h(this, F);
-    e(this, H, t), e(this, E, s), e(this, I, o), e(this, F, r);
+_from2 = new WeakMap();
+_to2 = new WeakMap();
+_color4 = new WeakMap();
+_dashes = new WeakMap();
+_thickness2 = new WeakMap();
+_options2 = new WeakMap();
+class MultiLine {
+  constructor(points = [], color = new RGB(), thickness = 1, dashes = []) {
+    __privateAdd(this, _points);
+    __privateAdd(this, _color5);
+    __privateAdd(this, _dashes2);
+    __privateAdd(this, _thickness3);
+    __privateSet(this, _points, points);
+    __privateSet(this, _color5, color);
+    __privateSet(this, _dashes2, dashes);
+    __privateSet(this, _thickness3, thickness);
   }
   get points() {
-    return i(this, H);
+    return __privateGet(this, _points);
   }
   get color() {
-    return i(this, E);
+    return __privateGet(this, _color5);
   }
   get dashes() {
-    return i(this, I);
+    return __privateGet(this, _dashes2);
   }
   get thickness() {
-    return i(this, F);
+    return __privateGet(this, _thickness3);
   }
-  set points(t) {
-    e(this, H, t);
+  set points(points) {
+    __privateSet(this, _points, points);
   }
-  set color(t) {
-    e(this, E, t);
+  set color(color) {
+    __privateSet(this, _color5, color);
   }
-  set dashes(t) {
-    e(this, I, t);
+  set dashes(dashes) {
+    __privateSet(this, _dashes2, dashes);
   }
-  set thickness(t) {
-    e(this, F, t);
+  set thickness(thickness) {
+    __privateSet(this, _thickness3, thickness);
   }
-  draw(t) {
-    let s = t.ctx;
-    N.draw(t, () => {
-      const r = i(this, I).map(
-        (o) => typeof o == "string" ? parseInt(o) : o
+  draw(viewer) {
+    let ctx = viewer.ctx;
+    Draw.draw(viewer, () => {
+      const dashes = __privateGet(this, _dashes2).map(
+        (dash) => typeof dash === "string" ? parseInt(dash) : dash
       );
-      s.lineCap = "round", s.setLineDash(r), s.strokeStyle = this.color._toString, s.lineWidth = this.thickness;
-      for (let o = 0; o < this.points.length - 1; o++)
-        s.moveTo(this.points[o].x, this.points[o].y), s.lineTo(this.points[o + 1].x, this.points[o + 1].y);
-      return s.moveTo(
+      ctx.lineCap = "round";
+      ctx.setLineDash(dashes);
+      ctx.strokeStyle = this.color._toString;
+      ctx.lineWidth = this.thickness;
+      for (let i = 0; i < this.points.length - 1; i++) {
+        ctx.moveTo(this.points[i].x, this.points[i].y);
+        ctx.lineTo(this.points[i + 1].x, this.points[i + 1].y);
+      }
+      ctx.moveTo(
         this.points[this.points.length - 1].x,
         this.points[this.points.length - 1].y
-      ), s.stroke(), ["strokeStyle", "setLineDash", "lineWidth"];
+      );
+      ctx.stroke();
+      return ["strokeStyle", "setLineDash", "lineWidth"];
     });
   }
 }
-H = new WeakMap(), E = new WeakMap(), I = new WeakMap(), F = new WeakMap();
-class kt {
+_points = new WeakMap();
+_color5 = new WeakMap();
+_dashes2 = new WeakMap();
+_thickness3 = new WeakMap();
+class Path {
   constructor() {
-    U(this, "checkpoints", []);
+    __publicField(this, "checkpoints", []);
   }
   save() {
   }
-  back(t) {
+  back(count) {
   }
-  draw(t) {
-    t.ctx;
+  draw(viewer) {
+    viewer.ctx;
   }
 }
-var y, G, O, j, c;
-class Tt extends ht {
-  constructor(s, r = {}) {
-    super(s);
-    h(this, y);
-    h(this, G);
-    h(this, O);
-    h(this, j);
-    U(this, "offsetRotation");
-    h(this, c);
-    e(this, y, r.columns || 1), e(this, G, r.rows || 1), e(this, O, i(this, G) * i(this, y) || 1), e(this, j, r.scale || 1), this.offsetRotation = r.offsetRotation || new X(), e(this, c, 0);
+class Sprite extends Img {
+  constructor(path, options = {}) {
+    super(path);
+    __privateAdd(this, _columns);
+    __privateAdd(this, _rows);
+    __privateAdd(this, _count);
+    __privateAdd(this, _scale);
+    __publicField(this, "offsetRotation");
+    __privateAdd(this, _current);
+    __privateSet(this, _columns, options.columns || 1);
+    __privateSet(this, _rows, options.rows || 1);
+    __privateSet(this, _count, __privateGet(this, _rows) * __privateGet(this, _columns) || 1);
+    __privateSet(this, _scale, options.scale || 1);
+    this.offsetRotation = options.offsetRotation || new Rotation();
+    __privateSet(this, _current, 0);
   }
   get current() {
-    return i(this, c);
+    return __privateGet(this, _current);
   }
-  set current(s) {
-    e(this, c, s);
+  set current(position) {
+    __privateSet(this, _current, position);
   }
-  next(s = 1) {
-    e(this, c, i(this, c) + s), i(this, c) > i(this, O) - 1 && e(this, c, 0);
+  next(steps = 1) {
+    __privateSet(this, _current, __privateGet(this, _current) + steps);
+    if (__privateGet(this, _current) > __privateGet(this, _count) - 1) {
+      __privateSet(this, _current, 0);
+    }
   }
-  prev(s = 1) {
-    e(this, c, i(this, c) - s), i(this, c) < 0 && e(this, c, i(this, O) - 1);
+  prev(steps = 1) {
+    __privateSet(this, _current, __privateGet(this, _current) - steps);
+    if (__privateGet(this, _current) < 0) {
+      __privateSet(this, _current, __privateGet(this, _count) - 1);
+    }
   }
-  draw(s, r = new lt()) {
-    let o = s.ctx, l = r.position, p = r.rotation;
+  draw(viewer, transform = new TransformComponent()) {
+    let ctx = viewer.ctx;
+    let position = transform.position;
+    let rotation = transform.rotation;
     if (this.imgLoaded) {
-      let Q = new a(
-        i(this, c) % i(this, y),
-        Math.floor(i(this, c) / i(this, y))
-      ), z = this.img.width / i(this, y), _ = this.img.height / i(this, G), $ = z * i(this, j), tt = _ * i(this, j);
-      o.save(), o.translate(l.x, l.y), o.rotate(-p.sub(this.offsetRotation).angle), o.translate(-l.x, -l.y), o.imageSmoothingEnabled = !1, o.drawImage(
+      let current = new Vector2(
+        __privateGet(this, _current) % __privateGet(this, _columns),
+        Math.floor(__privateGet(this, _current) / __privateGet(this, _columns))
+      );
+      let spriteWidth = this.img.width / __privateGet(this, _columns);
+      let spriteHeight = this.img.height / __privateGet(this, _rows);
+      let displayedWidth = spriteWidth * __privateGet(this, _scale);
+      let displayedHeight = spriteHeight * __privateGet(this, _scale);
+      ctx.save();
+      ctx.translate(position.x, position.y);
+      ctx.rotate(-rotation.sub(this.offsetRotation).angle);
+      ctx.translate(-position.x, -position.y);
+      ctx.imageSmoothingEnabled = false;
+      ctx.drawImage(
         this.img,
-        Q.x * z,
-        Q.y * _,
-        z,
-        _,
-        l.x - $ / 2,
-        l.y - tt / 2,
-        $,
-        tt
-      ), o.restore();
+        current.x * spriteWidth,
+        current.y * spriteHeight,
+        spriteWidth,
+        spriteHeight,
+        position.x - displayedWidth / 2,
+        position.y - displayedHeight / 2,
+        displayedWidth,
+        displayedHeight
+      );
+      ctx.restore();
     }
   }
 }
-y = new WeakMap(), G = new WeakMap(), O = new WeakMap(), j = new WeakMap(), c = new WeakMap();
-var A;
-class Ct {
-  constructor(t, s) {
-    U(this, "sprite");
-    U(this, "positions");
-    h(this, A);
-    this.sprite = t, this.positions = s, e(this, A, 0), this.sprite.current = this.positions[this.current];
+_columns = new WeakMap();
+_rows = new WeakMap();
+_count = new WeakMap();
+_scale = new WeakMap();
+_current = new WeakMap();
+class SpriteSequence {
+  constructor(sprite, positions) {
+    __publicField(this, "sprite");
+    __publicField(this, "positions");
+    __privateAdd(this, _current2);
+    this.sprite = sprite;
+    this.positions = positions;
+    __privateSet(this, _current2, 0);
+    this.sprite.current = this.positions[this.current];
   }
   get current() {
-    return i(this, A);
+    return __privateGet(this, _current2);
   }
-  set current(t) {
-    e(this, A, t), this.sprite.current = this.positions[this.current];
+  set current(current) {
+    __privateSet(this, _current2, current);
+    this.sprite.current = this.positions[this.current];
   }
   next() {
-    this.current++, this.current >= this.positions.length && (this.current = 0);
+    this.current++;
+    if (this.current >= this.positions.length) {
+      this.current = 0;
+    }
   }
   prev() {
-    this.current--, this.current < 0 && (this.current = this.positions.length - 1);
+    this.current--;
+    if (this.current < 0) {
+      this.current = this.positions.length - 1;
+    }
   }
-  draw(t, s) {
-    this.sprite.draw(t, s);
+  draw(viewer, transform) {
+    this.sprite.draw(viewer, transform);
   }
 }
-A = new WeakMap();
-var J, K, R;
-class Bt {
-  constructor(t = new a(), s = new a(), r = new Z()) {
-    h(this, J);
-    h(this, K);
-    h(this, R);
-    e(this, J, t), e(this, K, s), e(this, R, r);
+_current2 = new WeakMap();
+class Square {
+  constructor(position = new Vector2(), size = new Vector2(), color = new RGB()) {
+    __privateAdd(this, _position3);
+    __privateAdd(this, _size);
+    __privateAdd(this, _color6);
+    __privateSet(this, _position3, position);
+    __privateSet(this, _size, size);
+    __privateSet(this, _color6, color);
   }
   get position() {
-    return i(this, J);
+    return __privateGet(this, _position3);
   }
   get size() {
-    return i(this, K);
+    return __privateGet(this, _size);
   }
   get color() {
-    return i(this, R);
+    return __privateGet(this, _color6);
   }
-  set position(t) {
-    e(this, J, t);
+  set position(position) {
+    __privateSet(this, _position3, position);
   }
-  set size(t) {
-    e(this, K, t);
+  set size(size) {
+    __privateSet(this, _size, size);
   }
-  set color(t) {
-    e(this, R, t);
+  set color(color) {
+    __privateSet(this, _color6, color);
   }
-  draw(t) {
-    let s = t.ctx;
-    N.draw(t, () => (s.fillStyle = i(this, R)._toString, s.fillRect(this.position.x, this.position.y, this.size.x, this.size.y), s.fill(), ["fillStyle"]));
+  draw(viewer) {
+    let ctx = viewer.ctx;
+    Draw.draw(viewer, () => {
+      ctx.fillStyle = __privateGet(this, _color6)._toString;
+      ctx.fillRect(this.position.x, this.position.y, this.size.x, this.size.y);
+      ctx.fill();
+      return ["fillStyle"];
+    });
   }
 }
-J = new WeakMap(), K = new WeakMap(), R = new WeakMap();
+_position3 = new WeakMap();
+_size = new WeakMap();
+_color6 = new WeakMap();
 export {
-  wt as Circle,
-  mt as CircleScreen,
-  yt as DebugVector,
-  N as Draw,
-  ht as Img,
-  xt as Line,
-  St as MultiLine,
-  kt as Path,
-  zt as RoundSquare,
-  Tt as Sprite,
-  Ct as SpriteSequence,
-  Bt as Square,
-  _t as Text
+  Circle,
+  CircleScreen,
+  DebugVector,
+  Draw,
+  Img,
+  Line,
+  MultiLine,
+  Path,
+  R as RoundSquare,
+  Sprite,
+  SpriteSequence,
+  Square,
+  T as Text
 };
+//# sourceMappingURL=Shapes.es.js.map

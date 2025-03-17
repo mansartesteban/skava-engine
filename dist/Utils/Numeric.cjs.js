@@ -1,1 +1,46 @@
-"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const s=(t=0,r=4)=>{let e=Math.pow(10,r),a=r<0?t:.01/e+t;return Math.round(a*e)/e},c=(t=0,r=0,e=0,a=!1)=>a?t>r&&t<e:t>=r&&t<=e,d=(t=0,r=1)=>Math.floor(Math.random()*(r-t+1))+t,u=(t=0,r=0,e=0,a=0,o=0)=>a+(o-a)/(e-r)*(t-r),l=(t=0,r=0,e=0)=>t<r?r:t>e?e:t,n=(t=0,r=0,e=0)=>Math.min(Math.max(t,r),e),M=()=>Math.floor(Math.random()*16777215).toString(16),h=(t=0)=>t*Math.PI/180,g=(t=0)=>t*(180/Math.PI),m=(t,r,e)=>(e=n(e,0,1),(1-e)*t+e*r);exports.clamp=n;exports.degreesToRadians=h;exports.isBetween=c;exports.lerp=m;exports.mapRange=u;exports.minMax=l;exports.num=s;exports.radiansToDegrees=g;exports.random=d;exports.randomHexadecimal=M;
+"use strict";
+Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
+const num = (number = 0, precision = 4) => {
+  let factor = Math.pow(10, precision);
+  let n = precision < 0 ? number : 0.01 / factor + number;
+  return Math.round(n * factor) / factor;
+};
+const isBetween = (number = 0, min = 0, max = 0, strict = false) => {
+  return strict ? number > min && number < max : number >= min && number <= max;
+};
+const random = (min = 0, max = 1) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+const mapRange = (x = 0, fromMin = 0, fromMax = 0, toMin = 0, toMax = 0) => {
+  return toMin + (toMax - toMin) / (fromMax - fromMin) * (x - fromMin);
+};
+const minMax = (x = 0, min = 0, max = 0) => {
+  return x < min ? min : x > max ? max : x;
+};
+const clamp = (num2 = 0, min = 0, max = 0) => {
+  return Math.min(Math.max(num2, min), max);
+};
+const randomHexadecimal = () => {
+  return Math.floor(Math.random() * 16777215).toString(16);
+};
+const degreesToRadians = (degrees = 0) => {
+  return degrees * Math.PI / 180;
+};
+const radiansToDegrees = (radians = 0) => {
+  return radians * (180 / Math.PI);
+};
+const lerp = (a, b, delta) => {
+  delta = clamp(delta, 0, 1);
+  return (1 - delta) * a + delta * b;
+};
+exports.clamp = clamp;
+exports.degreesToRadians = degreesToRadians;
+exports.isBetween = isBetween;
+exports.lerp = lerp;
+exports.mapRange = mapRange;
+exports.minMax = minMax;
+exports.num = num;
+exports.radiansToDegrees = radiansToDegrees;
+exports.random = random;
+exports.randomHexadecimal = randomHexadecimal;
+//# sourceMappingURL=Numeric.cjs.js.map

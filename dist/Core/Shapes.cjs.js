@@ -1,1 +1,573 @@
-"use strict";var st=Object.defineProperty;var $=n=>{throw TypeError(n)};var et=(n,t,i)=>t in n?st(n,t,{enumerable:!0,configurable:!0,writable:!0,value:i}):n[t]=i;var Q=(n,t,i)=>et(n,typeof t!="symbol"?t+"":t,i),tt=(n,t,i)=>t.has(n)||$("Cannot "+i);var s=(n,t,i)=>(tt(n,t,"read from private field"),i?i.call(n):t.get(n)),h=(n,t,i)=>t.has(n)?$("Cannot add the same private member more than once"):t instanceof WeakSet?t.add(n):t.set(n,i),e=(n,t,i,r)=>(tt(n,t,"write to private field"),r?r.call(n,i):t.set(n,i),i);var it=(n,t,i,r)=>({set _(o){e(n,t,o,i)},get _(){return s(n,t,r)}});Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});require("../Time-DqDcjPhP.js");require("uuid");const l=require("../Vector2-3guUrHSy.js"),g=require("../Text-Gg5SDpHJ.js"),ot=require("../Utils/Numeric.cjs.js"),rt=require("../TransformComponent-CbIqoe1q.js");var M,x,k,w,T,u;class ht{constructor(t=new l.Vector2,i=1,r=new l.RGB,o=null,a=null,p={}){h(this,M);h(this,x);h(this,k);h(this,w);h(this,T);h(this,u);e(this,M,t),e(this,x,i),e(this,k,r),this.angle=o,this.direction=a,e(this,u,p)}get position(){return s(this,M)}get radius(){return s(this,x)}get color(){return s(this,k)}get angle(){return s(this,w)}get direction(){return s(this,T)}get options(){return s(this,u)}set position(t){e(this,M,t)}set radius(t){e(this,x,t)}set color(t){e(this,k,t)}set angle(t){t||(t=new l.Rotation(Math.PI*2,!0)),e(this,w,t)}set direction(t){t||(t=new l.Vector2),e(this,T,t)}set options(t){e(this,u,t)}draw(t){let i=t.ctx;g.Draw.draw(t,()=>(i.fillStyle=s(this,k)._toString,s(this,u).shadowBlur&&(i.shadowBlur=s(this,u).shadowBlur),s(this,u).shadowColor&&(i.shadowColor=s(this,u).shadowColor._toString),i.arc(this.position.x,this.position.y,s(this,x),s(this,T).rotation.angle-s(this,w).angle/2,s(this,T).rotation.angle+s(this,w).angle/2),s(this,w).angle%(2*Math.PI)!==0&&i.lineTo(this.position.x,this.position.y),i.fill(),s(this,u).shadowBlur&&(i.shadowBlur=0),s(this,u).shadowColor&&(i.shadowColor=""),["fillStyle"]))}}M=new WeakMap,x=new WeakMap,k=new WeakMap,w=new WeakMap,T=new WeakMap,u=new WeakMap;var C,V,m,f,y;class nt{constructor(t=new l.Vector2,i=1,r=new(s(this,m)),o=new l.Rotation(Math.PI*2,!0),a=new l.Vector2){h(this,C);h(this,V);h(this,m);h(this,f);h(this,y);e(this,C,t),e(this,V,i),e(this,m,r),e(this,f,o),e(this,y,a)}get position(){return s(this,C)}get radius(){return s(this,V)}get color(){return s(this,m)}get angle(){return s(this,f)}get direction(){return s(this,y)}set position(t){e(this,C,t)}set radius(t){e(this,V,t)}set color(t){e(this,m,t)}set angle(t){e(this,f,t)}set direction(t){e(this,y,t)}draw(t){let i=t.ctx;g.Draw.draw(t,()=>{i.fillStyle=s(this,m)._toString;let r=s(this,C);return i.arc(r.x,r.y,s(this,V),s(this,y).rotation.angle-s(this,f).angle/2,s(this,y).rotation.angle+s(this,f).angle/2),s(this,f).angle%(2*Math.PI)!==0&&i.lineTo(r.x,r.y),i.fill(),["fillStyle"]})}}C=new WeakMap,V=new WeakMap,m=new WeakMap,f=new WeakMap,y=new WeakMap;var _,z,L,P,X;class lt{constructor(t=new l.Vector2,i=new l.Vector2,r=l.RGB.Fuchsia,o=5){h(this,_);h(this,z);h(this,L);h(this,P);h(this,X,0);e(this,_,t),e(this,z,i),e(this,L,r),e(this,P,o)}get from(){return s(this,_)}get to(){return s(this,z)}set from(t){e(this,_,t)}set to(t){e(this,z,t)}draw(t){let i=t.ctx;g.Draw.draw(t,()=>{i.strokeStyle=s(this,L)._toString,i.lineWidth=s(this,P),i.fillStyle=s(this,L)._toString;let r=ot.clamp(s(this,P)*3,10,1e3);if(l.Vector2.from(this.from).to(this.to).length<=r){let I=s(this,X)%4<2?"#ff0000":"#ffffff";i.strokeStyle=I,i.fillStyle=I}this.to.add(l.Vector2.from(this.from).to(this.to).normalized.multiply(-r));let o=this.to.clone().add(l.Vector2.from(this.from).to(this.to).normalized.multiply(r)),a=l.Vector2.from(this.to).to(this.from).normalize(),p=r*2,K=a.clone().rotate(new l.Rotation(Math.PI*2)).multiply(p).add(this.to),q=a.clone().rotate(new l.Rotation(-Math.PI*2)).multiply(p).add(this.to);return i.moveTo(this.from.x,this.from.y),i.lineTo(this.to.x,this.to.y),i.stroke(),i.moveTo(o.x,o.y),i.lineTo(K.x,K.y),i.lineTo(q.x,q.y),i.lineTo(o.x,o.y),i.fill(),["strokeStyle","lineWidth","fillStyle"]}),it(this,X)._++}}_=new WeakMap,z=new WeakMap,L=new WeakMap,P=new WeakMap,X=new WeakMap;var W,b,G,R,v,d;class at{constructor(t=new l.Vector2,i=new l.Vector2,r=new l.RGB,o=1,a=[],p={}){h(this,W);h(this,b);h(this,G);h(this,R);h(this,v);h(this,d);e(this,W,t),e(this,b,i),e(this,G,r),e(this,R,a),e(this,v,o),e(this,d,p)}get from(){return s(this,W)}get to(){return s(this,b)}get color(){return s(this,G)}get dashes(){return s(this,R)}get thickness(){return s(this,v)}get options(){return s(this,d)}set from(t){e(this,W,t)}set to(t){e(this,b,t)}set color(t){e(this,G,t)}set dashes(t){e(this,R,t)}set thickness(t){e(this,v,t)}set options(t){e(this,d,t)}draw(t){let i=t.ctx;g.Draw.draw(t,()=>{const r=s(this,R).map(o=>typeof o=="string"?parseInt(o):o);return s(this,d).shadowBlur&&(i.shadowBlur=s(this,d).shadowBlur),s(this,d).shadowColor&&(i.shadowColor=s(this,d).shadowColor._toString),i.lineCap="round",i.setLineDash(r),i.strokeStyle=this.color._toString,i.lineWidth=this.thickness,i.moveTo(this.from.x,this.from.y),i.lineTo(this.to.x,this.to.y),i.stroke(),s(this,d).shadowBlur&&(i.shadowBlur=0),s(this,d).shadowColor&&(i.shadowColor=""),["strokeStyle","setLineDash","lineWidth"]})}}W=new WeakMap,b=new WeakMap,G=new WeakMap,R=new WeakMap,v=new WeakMap,d=new WeakMap;var H,O,B,j;class ct{constructor(t=[],i=new l.RGB,r=1,o=[]){h(this,H);h(this,O);h(this,B);h(this,j);e(this,H,t),e(this,O,i),e(this,B,o),e(this,j,r)}get points(){return s(this,H)}get color(){return s(this,O)}get dashes(){return s(this,B)}get thickness(){return s(this,j)}set points(t){e(this,H,t)}set color(t){e(this,O,t)}set dashes(t){e(this,B,t)}set thickness(t){e(this,j,t)}draw(t){let i=t.ctx;g.Draw.draw(t,()=>{const r=s(this,B).map(o=>typeof o=="string"?parseInt(o):o);i.lineCap="round",i.setLineDash(r),i.strokeStyle=this.color._toString,i.lineWidth=this.thickness;for(let o=0;o<this.points.length-1;o++)i.moveTo(this.points[o].x,this.points[o].y),i.lineTo(this.points[o+1].x,this.points[o+1].y);return i.moveTo(this.points[this.points.length-1].x,this.points[this.points.length-1].y),i.stroke(),["strokeStyle","setLineDash","lineWidth"]})}}H=new WeakMap,O=new WeakMap,B=new WeakMap,j=new WeakMap;class ut{constructor(){Q(this,"checkpoints",[])}save(){}back(t){}draw(t){t.ctx}}var S,E,F,N,c;class dt extends g.Img{constructor(i,r={}){super(i);h(this,S);h(this,E);h(this,F);h(this,N);Q(this,"offsetRotation");h(this,c);e(this,S,r.columns||1),e(this,E,r.rows||1),e(this,F,s(this,E)*s(this,S)||1),e(this,N,r.scale||1),this.offsetRotation=r.offsetRotation||new l.Rotation,e(this,c,0)}get current(){return s(this,c)}set current(i){e(this,c,i)}next(i=1){e(this,c,s(this,c)+i),s(this,c)>s(this,F)-1&&e(this,c,0)}prev(i=1){e(this,c,s(this,c)-i),s(this,c)<0&&e(this,c,s(this,F)-1)}draw(i,r=new rt.TransformComponent){let o=i.ctx,a=r.position,p=r.rotation;if(this.imgLoaded){let K=new l.Vector2(s(this,c)%s(this,S),Math.floor(s(this,c)/s(this,S))),q=this.img.width/s(this,S),I=this.img.height/s(this,E),Y=q*s(this,N),Z=I*s(this,N);o.save(),o.translate(a.x,a.y),o.rotate(-p.sub(this.offsetRotation).angle),o.translate(-a.x,-a.y),o.imageSmoothingEnabled=!1,o.drawImage(this.img,K.x*q,K.y*I,q,I,a.x-Y/2,a.y-Z/2,Y,Z),o.restore()}}}S=new WeakMap,E=new WeakMap,F=new WeakMap,N=new WeakMap,c=new WeakMap;var U;class gt{constructor(t,i){Q(this,"sprite");Q(this,"positions");h(this,U);this.sprite=t,this.positions=i,e(this,U,0),this.sprite.current=this.positions[this.current]}get current(){return s(this,U)}set current(t){e(this,U,t),this.sprite.current=this.positions[this.current]}next(){this.current++,this.current>=this.positions.length&&(this.current=0)}prev(){this.current--,this.current<0&&(this.current=this.positions.length-1)}draw(t,i){this.sprite.draw(t,i)}}U=new WeakMap;var A,J,D;class ft{constructor(t=new l.Vector2,i=new l.Vector2,r=new l.RGB){h(this,A);h(this,J);h(this,D);e(this,A,t),e(this,J,i),e(this,D,r)}get position(){return s(this,A)}get size(){return s(this,J)}get color(){return s(this,D)}set position(t){e(this,A,t)}set size(t){e(this,J,t)}set color(t){e(this,D,t)}draw(t){let i=t.ctx;g.Draw.draw(t,()=>(i.fillStyle=s(this,D)._toString,i.fillRect(this.position.x,this.position.y,this.size.x,this.size.y),i.fill(),["fillStyle"]))}}A=new WeakMap,J=new WeakMap,D=new WeakMap;exports.Draw=g.Draw;exports.Img=g.Img;exports.RoundSquare=g.RoundSquare;exports.Text=g.Text;exports.Circle=ht;exports.CircleScreen=nt;exports.DebugVector=lt;exports.Line=at;exports.MultiLine=ct;exports.Path=ut;exports.Sprite=dt;exports.SpriteSequence=gt;exports.Square=ft;
+"use strict";
+var __defProp = Object.defineProperty;
+var __typeError = (msg) => {
+  throw TypeError(msg);
+};
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+var __accessCheck = (obj, member, msg) => member.has(obj) || __typeError("Cannot " + msg);
+var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
+var __privateAdd = (obj, member, value) => member.has(obj) ? __typeError("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
+var __privateWrapper = (obj, member, setter, getter) => ({
+  set _(value) {
+    __privateSet(obj, member, value, setter);
+  },
+  get _() {
+    return __privateGet(obj, member, getter);
+  }
+});
+var _position, _radius, _color, _angle, _direction, _options, _position2, _radius2, _color2, _angle2, _direction2, _from, _to, _color3, _thickness, _frame, _from2, _to2, _color4, _dashes, _thickness2, _options2, _points, _color5, _dashes2, _thickness3, _columns, _rows, _count, _scale, _current, _current2, _position3, _size, _color6;
+Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
+require("../Time-BnYKtbMg.js");
+require("uuid");
+const Vector2 = require("../Vector2-BBtao3PE.js");
+const Text = require("../Text-DcL__UJb.js");
+const Utils_Numeric = require("../Utils/Numeric.cjs.js");
+const TransformComponent = require("../TransformComponent-D_P9unOt.js");
+class Circle {
+  constructor(position = new Vector2.Vector2(), radius = 1, color = new Vector2.RGB(), angle = null, direction = null, options = {}) {
+    __privateAdd(this, _position);
+    __privateAdd(this, _radius);
+    __privateAdd(this, _color);
+    __privateAdd(this, _angle);
+    __privateAdd(this, _direction);
+    __privateAdd(this, _options);
+    __privateSet(this, _position, position);
+    __privateSet(this, _radius, radius);
+    __privateSet(this, _color, color);
+    this.angle = angle;
+    this.direction = direction;
+    __privateSet(this, _options, options);
+  }
+  get position() {
+    return __privateGet(this, _position);
+  }
+  get radius() {
+    return __privateGet(this, _radius);
+  }
+  get color() {
+    return __privateGet(this, _color);
+  }
+  get angle() {
+    return __privateGet(this, _angle);
+  }
+  get direction() {
+    return __privateGet(this, _direction);
+  }
+  get options() {
+    return __privateGet(this, _options);
+  }
+  set position(position) {
+    __privateSet(this, _position, position);
+  }
+  set radius(radius) {
+    __privateSet(this, _radius, radius);
+  }
+  set color(color) {
+    __privateSet(this, _color, color);
+  }
+  set angle(angle) {
+    if (!angle) {
+      angle = new Vector2.Rotation(Math.PI * 2, true);
+    }
+    __privateSet(this, _angle, angle);
+  }
+  set direction(direction) {
+    if (!direction) {
+      direction = new Vector2.Vector2();
+    }
+    __privateSet(this, _direction, direction);
+  }
+  set options(options) {
+    __privateSet(this, _options, options);
+  }
+  draw(viewer) {
+    let ctx = viewer.ctx;
+    Text.Draw.draw(viewer, () => {
+      ctx.fillStyle = __privateGet(this, _color)._toString;
+      if (__privateGet(this, _options).shadowBlur) {
+        ctx.shadowBlur = __privateGet(this, _options).shadowBlur;
+      }
+      if (__privateGet(this, _options).shadowColor) {
+        ctx.shadowColor = __privateGet(this, _options).shadowColor._toString;
+      }
+      ctx.arc(
+        this.position.x,
+        this.position.y,
+        __privateGet(this, _radius),
+        __privateGet(this, _direction).rotation.angle - __privateGet(this, _angle).angle / 2,
+        __privateGet(this, _direction).rotation.angle + __privateGet(this, _angle).angle / 2
+      );
+      if (__privateGet(this, _angle).angle % (2 * Math.PI) !== 0) {
+        ctx.lineTo(this.position.x, this.position.y);
+      }
+      ctx.fill();
+      if (__privateGet(this, _options).shadowBlur) {
+        ctx.shadowBlur = 0;
+      }
+      if (__privateGet(this, _options).shadowColor) {
+        ctx.shadowColor = "";
+      }
+      return ["fillStyle"];
+    });
+  }
+}
+_position = new WeakMap();
+_radius = new WeakMap();
+_color = new WeakMap();
+_angle = new WeakMap();
+_direction = new WeakMap();
+_options = new WeakMap();
+class CircleScreen {
+  constructor(position = new Vector2.Vector2(), radius = 1, color = new (__privateGet(this, _color2))(), angle = new Vector2.Rotation(Math.PI * 2, true), direction = new Vector2.Vector2()) {
+    __privateAdd(this, _position2);
+    __privateAdd(this, _radius2);
+    __privateAdd(this, _color2);
+    __privateAdd(this, _angle2);
+    __privateAdd(this, _direction2);
+    __privateSet(this, _position2, position);
+    __privateSet(this, _radius2, radius);
+    __privateSet(this, _color2, color);
+    __privateSet(this, _angle2, angle);
+    __privateSet(this, _direction2, direction);
+  }
+  get position() {
+    return __privateGet(this, _position2);
+  }
+  get radius() {
+    return __privateGet(this, _radius2);
+  }
+  get color() {
+    return __privateGet(this, _color2);
+  }
+  get angle() {
+    return __privateGet(this, _angle2);
+  }
+  get direction() {
+    return __privateGet(this, _direction2);
+  }
+  set position(position) {
+    __privateSet(this, _position2, position);
+  }
+  set radius(radius) {
+    __privateSet(this, _radius2, radius);
+  }
+  set color(color) {
+    __privateSet(this, _color2, color);
+  }
+  set angle(angle) {
+    __privateSet(this, _angle2, angle);
+  }
+  set direction(direction) {
+    __privateSet(this, _direction2, direction);
+  }
+  draw(viewer) {
+    let ctx = viewer.ctx;
+    Text.Draw.draw(viewer, () => {
+      ctx.fillStyle = __privateGet(this, _color2)._toString;
+      let positionOnScreen = __privateGet(this, _position2);
+      ctx.arc(
+        positionOnScreen.x,
+        positionOnScreen.y,
+        __privateGet(this, _radius2),
+        __privateGet(this, _direction2).rotation.angle - __privateGet(this, _angle2).angle / 2,
+        __privateGet(this, _direction2).rotation.angle + __privateGet(this, _angle2).angle / 2
+      );
+      if (__privateGet(this, _angle2).angle % (2 * Math.PI) !== 0) {
+        ctx.lineTo(positionOnScreen.x, positionOnScreen.y);
+      }
+      ctx.fill();
+      return ["fillStyle"];
+    });
+  }
+}
+_position2 = new WeakMap();
+_radius2 = new WeakMap();
+_color2 = new WeakMap();
+_angle2 = new WeakMap();
+_direction2 = new WeakMap();
+class DebugVector {
+  constructor(from = new Vector2.Vector2(), to = new Vector2.Vector2(), color = Vector2.RGB.Fuchsia, thickness = 5) {
+    __privateAdd(this, _from);
+    __privateAdd(this, _to);
+    __privateAdd(this, _color3);
+    __privateAdd(this, _thickness);
+    __privateAdd(this, _frame, 0);
+    __privateSet(this, _from, from);
+    __privateSet(this, _to, to);
+    __privateSet(this, _color3, color);
+    __privateSet(this, _thickness, thickness);
+  }
+  get from() {
+    return __privateGet(this, _from);
+  }
+  get to() {
+    return __privateGet(this, _to);
+  }
+  set from(from) {
+    __privateSet(this, _from, from);
+  }
+  set to(to) {
+    __privateSet(this, _to, to);
+  }
+  draw(viewer) {
+    let ctx = viewer.ctx;
+    Text.Draw.draw(viewer, () => {
+      ctx.strokeStyle = __privateGet(this, _color3)._toString;
+      ctx.lineWidth = __privateGet(this, _thickness);
+      ctx.fillStyle = __privateGet(this, _color3)._toString;
+      let arrowSize = Utils_Numeric.clamp(__privateGet(this, _thickness) * 3, 10, 1e3);
+      if (Vector2.Vector2.from(this.from).to(this.to).length <= arrowSize) {
+        let color = __privateGet(this, _frame) % 4 < 2 ? "#ff0000" : "#ffffff";
+        ctx.strokeStyle = color;
+        ctx.fillStyle = color;
+      }
+      this.to.add(
+        Vector2.Vector2.from(this.from).to(this.to).normalized.multiply(-arrowSize)
+      );
+      let front = this.to.clone().add(
+        Vector2.Vector2.from(this.from).to(this.to).normalized.multiply(arrowSize)
+      );
+      let frontDirection = Vector2.Vector2.from(this.to).to(this.from).normalize();
+      let arrowSides = arrowSize * 2;
+      let left = frontDirection.clone().rotate(new Vector2.Rotation(Math.PI * 2)).multiply(arrowSides).add(this.to);
+      let right = frontDirection.clone().rotate(new Vector2.Rotation(-Math.PI * 2)).multiply(arrowSides).add(this.to);
+      ctx.moveTo(this.from.x, this.from.y);
+      ctx.lineTo(this.to.x, this.to.y);
+      ctx.stroke();
+      ctx.moveTo(front.x, front.y);
+      ctx.lineTo(left.x, left.y);
+      ctx.lineTo(right.x, right.y);
+      ctx.lineTo(front.x, front.y);
+      ctx.fill();
+      return ["strokeStyle", "lineWidth", "fillStyle"];
+    });
+    __privateWrapper(this, _frame)._++;
+  }
+}
+_from = new WeakMap();
+_to = new WeakMap();
+_color3 = new WeakMap();
+_thickness = new WeakMap();
+_frame = new WeakMap();
+class Line {
+  constructor(from = new Vector2.Vector2(), to = new Vector2.Vector2(), color = new Vector2.RGB(), thickness = 1, dashes = [], options = {}) {
+    __privateAdd(this, _from2);
+    __privateAdd(this, _to2);
+    __privateAdd(this, _color4);
+    __privateAdd(this, _dashes);
+    __privateAdd(this, _thickness2);
+    __privateAdd(this, _options2);
+    __privateSet(this, _from2, from);
+    __privateSet(this, _to2, to);
+    __privateSet(this, _color4, color);
+    __privateSet(this, _dashes, dashes);
+    __privateSet(this, _thickness2, thickness);
+    __privateSet(this, _options2, options);
+  }
+  get from() {
+    return __privateGet(this, _from2);
+  }
+  get to() {
+    return __privateGet(this, _to2);
+  }
+  get color() {
+    return __privateGet(this, _color4);
+  }
+  get dashes() {
+    return __privateGet(this, _dashes);
+  }
+  get thickness() {
+    return __privateGet(this, _thickness2);
+  }
+  get options() {
+    return __privateGet(this, _options2);
+  }
+  set from(from) {
+    __privateSet(this, _from2, from);
+  }
+  set to(to) {
+    __privateSet(this, _to2, to);
+  }
+  set color(color) {
+    __privateSet(this, _color4, color);
+  }
+  set dashes(dashes) {
+    __privateSet(this, _dashes, dashes);
+  }
+  set thickness(thickness) {
+    __privateSet(this, _thickness2, thickness);
+  }
+  set options(options) {
+    __privateSet(this, _options2, options);
+  }
+  draw(viewer) {
+    let ctx = viewer.ctx;
+    Text.Draw.draw(viewer, () => {
+      const dashes = __privateGet(this, _dashes).map(
+        (dash) => typeof dash === "string" ? parseInt(dash) : dash
+      );
+      if (__privateGet(this, _options2).shadowBlur) {
+        ctx.shadowBlur = __privateGet(this, _options2).shadowBlur;
+      }
+      if (__privateGet(this, _options2).shadowColor) {
+        ctx.shadowColor = __privateGet(this, _options2).shadowColor._toString;
+      }
+      ctx.lineCap = "round";
+      ctx.setLineDash(dashes);
+      ctx.strokeStyle = this.color._toString;
+      ctx.lineWidth = this.thickness;
+      ctx.moveTo(this.from.x, this.from.y);
+      ctx.lineTo(this.to.x, this.to.y);
+      ctx.stroke();
+      if (__privateGet(this, _options2).shadowBlur) {
+        ctx.shadowBlur = 0;
+      }
+      if (__privateGet(this, _options2).shadowColor) {
+        ctx.shadowColor = "";
+      }
+      return ["strokeStyle", "setLineDash", "lineWidth"];
+    });
+  }
+}
+_from2 = new WeakMap();
+_to2 = new WeakMap();
+_color4 = new WeakMap();
+_dashes = new WeakMap();
+_thickness2 = new WeakMap();
+_options2 = new WeakMap();
+class MultiLine {
+  constructor(points = [], color = new Vector2.RGB(), thickness = 1, dashes = []) {
+    __privateAdd(this, _points);
+    __privateAdd(this, _color5);
+    __privateAdd(this, _dashes2);
+    __privateAdd(this, _thickness3);
+    __privateSet(this, _points, points);
+    __privateSet(this, _color5, color);
+    __privateSet(this, _dashes2, dashes);
+    __privateSet(this, _thickness3, thickness);
+  }
+  get points() {
+    return __privateGet(this, _points);
+  }
+  get color() {
+    return __privateGet(this, _color5);
+  }
+  get dashes() {
+    return __privateGet(this, _dashes2);
+  }
+  get thickness() {
+    return __privateGet(this, _thickness3);
+  }
+  set points(points) {
+    __privateSet(this, _points, points);
+  }
+  set color(color) {
+    __privateSet(this, _color5, color);
+  }
+  set dashes(dashes) {
+    __privateSet(this, _dashes2, dashes);
+  }
+  set thickness(thickness) {
+    __privateSet(this, _thickness3, thickness);
+  }
+  draw(viewer) {
+    let ctx = viewer.ctx;
+    Text.Draw.draw(viewer, () => {
+      const dashes = __privateGet(this, _dashes2).map(
+        (dash) => typeof dash === "string" ? parseInt(dash) : dash
+      );
+      ctx.lineCap = "round";
+      ctx.setLineDash(dashes);
+      ctx.strokeStyle = this.color._toString;
+      ctx.lineWidth = this.thickness;
+      for (let i = 0; i < this.points.length - 1; i++) {
+        ctx.moveTo(this.points[i].x, this.points[i].y);
+        ctx.lineTo(this.points[i + 1].x, this.points[i + 1].y);
+      }
+      ctx.moveTo(
+        this.points[this.points.length - 1].x,
+        this.points[this.points.length - 1].y
+      );
+      ctx.stroke();
+      return ["strokeStyle", "setLineDash", "lineWidth"];
+    });
+  }
+}
+_points = new WeakMap();
+_color5 = new WeakMap();
+_dashes2 = new WeakMap();
+_thickness3 = new WeakMap();
+class Path {
+  constructor() {
+    __publicField(this, "checkpoints", []);
+  }
+  save() {
+  }
+  back(count) {
+  }
+  draw(viewer) {
+    viewer.ctx;
+  }
+}
+class Sprite extends Text.Img {
+  constructor(path, options = {}) {
+    super(path);
+    __privateAdd(this, _columns);
+    __privateAdd(this, _rows);
+    __privateAdd(this, _count);
+    __privateAdd(this, _scale);
+    __publicField(this, "offsetRotation");
+    __privateAdd(this, _current);
+    __privateSet(this, _columns, options.columns || 1);
+    __privateSet(this, _rows, options.rows || 1);
+    __privateSet(this, _count, __privateGet(this, _rows) * __privateGet(this, _columns) || 1);
+    __privateSet(this, _scale, options.scale || 1);
+    this.offsetRotation = options.offsetRotation || new Vector2.Rotation();
+    __privateSet(this, _current, 0);
+  }
+  get current() {
+    return __privateGet(this, _current);
+  }
+  set current(position) {
+    __privateSet(this, _current, position);
+  }
+  next(steps = 1) {
+    __privateSet(this, _current, __privateGet(this, _current) + steps);
+    if (__privateGet(this, _current) > __privateGet(this, _count) - 1) {
+      __privateSet(this, _current, 0);
+    }
+  }
+  prev(steps = 1) {
+    __privateSet(this, _current, __privateGet(this, _current) - steps);
+    if (__privateGet(this, _current) < 0) {
+      __privateSet(this, _current, __privateGet(this, _count) - 1);
+    }
+  }
+  draw(viewer, transform = new TransformComponent.TransformComponent()) {
+    let ctx = viewer.ctx;
+    let position = transform.position;
+    let rotation = transform.rotation;
+    if (this.imgLoaded) {
+      let current = new Vector2.Vector2(
+        __privateGet(this, _current) % __privateGet(this, _columns),
+        Math.floor(__privateGet(this, _current) / __privateGet(this, _columns))
+      );
+      let spriteWidth = this.img.width / __privateGet(this, _columns);
+      let spriteHeight = this.img.height / __privateGet(this, _rows);
+      let displayedWidth = spriteWidth * __privateGet(this, _scale);
+      let displayedHeight = spriteHeight * __privateGet(this, _scale);
+      ctx.save();
+      ctx.translate(position.x, position.y);
+      ctx.rotate(-rotation.sub(this.offsetRotation).angle);
+      ctx.translate(-position.x, -position.y);
+      ctx.imageSmoothingEnabled = false;
+      ctx.drawImage(
+        this.img,
+        current.x * spriteWidth,
+        current.y * spriteHeight,
+        spriteWidth,
+        spriteHeight,
+        position.x - displayedWidth / 2,
+        position.y - displayedHeight / 2,
+        displayedWidth,
+        displayedHeight
+      );
+      ctx.restore();
+    }
+  }
+}
+_columns = new WeakMap();
+_rows = new WeakMap();
+_count = new WeakMap();
+_scale = new WeakMap();
+_current = new WeakMap();
+class SpriteSequence {
+  constructor(sprite, positions) {
+    __publicField(this, "sprite");
+    __publicField(this, "positions");
+    __privateAdd(this, _current2);
+    this.sprite = sprite;
+    this.positions = positions;
+    __privateSet(this, _current2, 0);
+    this.sprite.current = this.positions[this.current];
+  }
+  get current() {
+    return __privateGet(this, _current2);
+  }
+  set current(current) {
+    __privateSet(this, _current2, current);
+    this.sprite.current = this.positions[this.current];
+  }
+  next() {
+    this.current++;
+    if (this.current >= this.positions.length) {
+      this.current = 0;
+    }
+  }
+  prev() {
+    this.current--;
+    if (this.current < 0) {
+      this.current = this.positions.length - 1;
+    }
+  }
+  draw(viewer, transform) {
+    this.sprite.draw(viewer, transform);
+  }
+}
+_current2 = new WeakMap();
+class Square {
+  constructor(position = new Vector2.Vector2(), size = new Vector2.Vector2(), color = new Vector2.RGB()) {
+    __privateAdd(this, _position3);
+    __privateAdd(this, _size);
+    __privateAdd(this, _color6);
+    __privateSet(this, _position3, position);
+    __privateSet(this, _size, size);
+    __privateSet(this, _color6, color);
+  }
+  get position() {
+    return __privateGet(this, _position3);
+  }
+  get size() {
+    return __privateGet(this, _size);
+  }
+  get color() {
+    return __privateGet(this, _color6);
+  }
+  set position(position) {
+    __privateSet(this, _position3, position);
+  }
+  set size(size) {
+    __privateSet(this, _size, size);
+  }
+  set color(color) {
+    __privateSet(this, _color6, color);
+  }
+  draw(viewer) {
+    let ctx = viewer.ctx;
+    Text.Draw.draw(viewer, () => {
+      ctx.fillStyle = __privateGet(this, _color6)._toString;
+      ctx.fillRect(this.position.x, this.position.y, this.size.x, this.size.y);
+      ctx.fill();
+      return ["fillStyle"];
+    });
+  }
+}
+_position3 = new WeakMap();
+_size = new WeakMap();
+_color6 = new WeakMap();
+exports.Draw = Text.Draw;
+exports.Img = Text.Img;
+exports.RoundSquare = Text.RoundSquare;
+exports.Text = Text.Text;
+exports.Circle = Circle;
+exports.CircleScreen = CircleScreen;
+exports.DebugVector = DebugVector;
+exports.Line = Line;
+exports.MultiLine = MultiLine;
+exports.Path = Path;
+exports.Sprite = Sprite;
+exports.SpriteSequence = SpriteSequence;
+exports.Square = Square;
+//# sourceMappingURL=Shapes.cjs.js.map

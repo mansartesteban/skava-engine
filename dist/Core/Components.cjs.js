@@ -1,1 +1,27 @@
-"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const n=require("../ImplementError-SbvtDx-1.js"),t=require("../Vector2-3guUrHSy.js");require("../Time-DqDcjPhP.js");require("uuid");const o=require("../TransformComponent-CbIqoe1q.js");class s extends t.Component{constructor(e){super(),this.options={updateFrequency:16},e&&(this.options={...this.options,...e})}updateComponent(e,r){this.render(this.entity.scene.viewer,e,r)}render(e,r,m){throw new n.ImplementError("render","RenderComponent")}}exports.TransformComponent=o.TransformComponent;exports.Render2DComponent=s;
+"use strict";
+Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
+const ImplementError = require("../ImplementError-1IS0II9w.js");
+const Vector2 = require("../Vector2-BBtao3PE.js");
+require("../Time-BnYKtbMg.js");
+require("uuid");
+const TransformComponent = require("../TransformComponent-D_P9unOt.js");
+class Render2DComponent extends Vector2.Component {
+  constructor(options) {
+    super();
+    this.options = {
+      updateFrequency: 16
+    };
+    if (options) {
+      this.options = { ...this.options, ...options };
+    }
+  }
+  updateComponent(deltaTime, currentTime) {
+    this.render(this.entity.scene.viewer, deltaTime, currentTime);
+  }
+  render(_, deltaTime, currentTime) {
+    throw new ImplementError.ImplementError("render", "RenderComponent");
+  }
+}
+exports.TransformComponent = TransformComponent.TransformComponent;
+exports.Render2DComponent = Render2DComponent;
+//# sourceMappingURL=Components.cjs.js.map

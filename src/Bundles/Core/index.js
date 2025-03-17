@@ -14,7 +14,6 @@ import RGB from "@/Engine/RGB";
 import Rotation from "@/Engine/Rotation";
 import Vector2 from "@/Engine/Vector2";
 import CanvasRenderer from "@/Engine/Renderers/CanvasRenderer";
-import Renderer from "@/Engine/Renderers/Renderer";
 
 export {
   Application,
@@ -33,5 +32,4 @@ export {
   Rotation,
   Vector2,
   CanvasRenderer,
-  Renderer,
 };

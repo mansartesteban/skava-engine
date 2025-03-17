@@ -1,1 +1,16 @@
-"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const t=require("../UIAnimation-DCWGtZHx.js");require("../Time-DqDcjPhP.js");require("uuid");require("../Vector2-3guUrHSy.js");class i extends t.UIAnimation{loop(r,e){this.entity.transform.rotation.setAngle(Math.sin(e/50)/10,!0)}}exports.ShakeAnimation=i;
+"use strict";
+Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
+const UIAnimation = require("../UIAnimation-B8xma3ES.js");
+require("../Time-BnYKtbMg.js");
+require("uuid");
+require("../Vector2-BBtao3PE.js");
+class ShakeAnimation extends UIAnimation.UIAnimation {
+  loop(deltaTime, currentTime) {
+    this.entity.transform.rotation.setAngle(
+      Math.sin(currentTime / 50) / 10,
+      true
+    );
+  }
+}
+exports.ShakeAnimation = ShakeAnimation;
+//# sourceMappingURL=Animations.cjs.js.map

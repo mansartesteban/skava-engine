@@ -1,9 +1,15 @@
-const g = (e) => {
-  let p = Object.getPrototypeOf(e), r = Object.getOwnPropertyDescriptors(p);
-  return Object.keys(r).filter(
-    (t) => typeof r[t].get == "function"
-  ).reduce((t, o) => (t[o] = e[o], t), {});
+const getProperties = (instance) => {
+  let proto = Object.getPrototypeOf(instance);
+  let descriptors = Object.getOwnPropertyDescriptors(proto);
+  let getters = Object.keys(descriptors).filter(
+    (key) => typeof descriptors[key].get === "function"
+  );
+  return getters.reduce((acc, key) => {
+    acc[key] = instance[key];
+    return acc;
+  }, {});
 };
 export {
-  g as getProperties
+  getProperties
 };
+//# sourceMappingURL=Object.es.js.map

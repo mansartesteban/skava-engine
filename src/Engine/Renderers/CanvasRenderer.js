@@ -1,13 +1,11 @@
-import { Renderer } from "@/Bundles/Core";
-
-class CanvasRenderer extends Renderer {
+class CanvasRenderer {
   options;
   domElement;
 
   constructor(options) {
-    super();
     this.options = options;
     this.createDomElement();
+    console.log("ici???");
   }
 
   get ctx() {

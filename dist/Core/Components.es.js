@@ -1,22 +1,27 @@
-import { I as t } from "../ImplementError-CTSVZ3oY.mjs";
-import { C as o } from "../Vector2-DsmbReYL.mjs";
-import "../Time-DerQyAzN.mjs";
+import { I as ImplementError } from "../ImplementError-BSFja-GU.mjs";
+import { C as Component } from "../Vector2-Dy-12kp6.mjs";
+import "../Time-D6jb6SoV.mjs";
 import "uuid";
-import { T as u } from "../TransformComponent-CwHP_qGK.mjs";
-class a extends o {
-  constructor(e) {
-    super(), this.options = {
+import { T } from "../TransformComponent-bBQZJGxr.mjs";
+class Render2DComponent extends Component {
+  constructor(options) {
+    super();
+    this.options = {
       updateFrequency: 16
-    }, e && (this.options = { ...this.options, ...e });
+    };
+    if (options) {
+      this.options = { ...this.options, ...options };
+    }
   }
-  updateComponent(e, r) {
-    this.render(this.entity.scene.viewer, e, r);
+  updateComponent(deltaTime, currentTime) {
+    this.render(this.entity.scene.viewer, deltaTime, currentTime);
   }
-  render(e, r, m) {
-    throw new t("render", "RenderComponent");
+  render(_, deltaTime, currentTime) {
+    throw new ImplementError("render", "RenderComponent");
   }
 }
 export {
-  a as Render2DComponent,
-  u as TransformComponent
+  Render2DComponent,
+  T as TransformComponent
 };
+//# sourceMappingURL=Components.es.js.map

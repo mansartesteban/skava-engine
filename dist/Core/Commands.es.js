@@ -1,64 +1,65 @@
-var s = Object.defineProperty;
-var r = (a, e, m) => e in a ? s(a, e, { enumerable: !0, configurable: !0, writable: !0, value: m }) : a[e] = m;
-var n = (a, e, m) => r(a, typeof e != "symbol" ? e + "" : e, m);
-import { a as t } from "../CommandClick-uXVskFqn.mjs";
-import { C as f } from "../CommandClick-uXVskFqn.mjs";
-import { I as o } from "../ImplementError-CTSVZ3oY.mjs";
-class l extends t {
+var __defProp = Object.defineProperty;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+import { a as Command } from "../CommandClick-ClTGnPFM.mjs";
+import { C } from "../CommandClick-ClTGnPFM.mjs";
+import { I as ImplementError } from "../ImplementError-BSFja-GU.mjs";
+class CommandHold extends Command {
   execute() {
-    throw new o("execute", "CommandHold");
+    throw new ImplementError("execute", "CommandHold");
   }
 }
-class u extends t {
-  execute(...e) {
-    throw new o("execute", "CommandMouseMove");
+class CommandMouseMove extends Command {
+  execute(...parameters) {
+    throw new ImplementError("execute", "CommandMouseMove");
   }
 }
-class w extends t {
+class CommandOnce extends Command {
   constructor() {
     super(...arguments);
-    n(this, "executed", !1);
+    __publicField(this, "executed", false);
   }
   execute() {
-    throw new o("execute", "CommandOnce");
+    throw new ImplementError("execute", "CommandOnce");
   }
 }
-class C extends t {
-  execute(...e) {
-    throw new o("execute", "CommandSwipe");
+class CommandSwipe extends Command {
+  execute(...parameters) {
+    throw new ImplementError("execute", "CommandSwipe");
   }
 }
-class h extends t {
+class CommandToggle extends Command {
   constructor() {
     super(...arguments);
-    n(this, "executed", !1);
+    __publicField(this, "executed", false);
   }
   execute() {
-    throw new o("execute", "CommandToggle");
+    throw new ImplementError("execute", "CommandToggle");
   }
   release() {
-    throw new o("release", "CommandToggle");
+    throw new ImplementError("release", "CommandToggle");
   }
 }
-class i extends t {
+class CommandTouchMaintain extends Command {
   constructor() {
     super(...arguments);
-    n(this, "started", !1);
+    __publicField(this, "started", false);
   }
-  release(...m) {
-    throw new o("release", "CommandTouchMaintain");
+  release(...parameters) {
+    throw new ImplementError("release", "CommandTouchMaintain");
   }
-  execute(...m) {
-    throw new o("execute", "CommandTouchMaintain");
+  execute(...parameters) {
+    throw new ImplementError("execute", "CommandTouchMaintain");
   }
 }
 export {
-  t as Command,
-  f as CommandClick,
-  l as CommandHold,
-  u as CommandMouseMove,
-  w as CommandOnce,
-  C as CommandSwipe,
-  h as CommandToggle,
-  i as CommandTouchMaintain
+  Command,
+  C as CommandClick,
+  CommandHold,
+  CommandMouseMove,
+  CommandOnce,
+  CommandSwipe,
+  CommandToggle,
+  CommandTouchMaintain
 };
+//# sourceMappingURL=Commands.es.js.map

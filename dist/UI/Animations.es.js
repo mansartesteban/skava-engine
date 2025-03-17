@@ -1,15 +1,16 @@
-import { U as i } from "../UIAnimation-B_15Hu3W.mjs";
-import "../Time-DerQyAzN.mjs";
+import { U as UIAnimation } from "../UIAnimation-CD5YFu-5.mjs";
+import "../Time-D6jb6SoV.mjs";
 import "uuid";
-import "../Vector2-DsmbReYL.mjs";
-class s extends i {
-  loop(e, t) {
+import "../Vector2-Dy-12kp6.mjs";
+class ShakeAnimation extends UIAnimation {
+  loop(deltaTime, currentTime) {
     this.entity.transform.rotation.setAngle(
-      Math.sin(t / 50) / 10,
-      !0
+      Math.sin(currentTime / 50) / 10,
+      true
     );
   }
 }
 export {
-  s as ShakeAnimation
+  ShakeAnimation
 };
+//# sourceMappingURL=Animations.es.js.map

@@ -1,167 +1,216 @@
-var l = Object.defineProperty;
-var m = (t, e, s) => e in t ? l(t, e, { enumerable: !0, configurable: !0, writable: !0, value: s }) : t[e] = s;
-var o = (t, e, s) => m(t, typeof e != "symbol" ? e + "" : e, s);
-import "../Time-DerQyAzN.mjs";
+var __defProp = Object.defineProperty;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+import "../Time-D6jb6SoV.mjs";
 import "uuid";
-import { R as p } from "../Vector2-DsmbReYL.mjs";
-import { a as n, U as i, b as r } from "../UIStyleHandler-jb-sOgJG.mjs";
-import { M as F } from "../UIStyleHandler-jb-sOgJG.mjs";
-import { R as a, I as C, T as w } from "../Text-CBZArl-s.mjs";
-class S extends n {
-  setup() {
-    super.setup(), this.addRenderer(new f());
-  }
-}
-class D extends n {
+import { R as RGB } from "../Vector2-Dy-12kp6.mjs";
+import { a as UIComponent, U as UIStyle, b as UIRenderer } from "../UIStyleHandler-BrxVR-qc.mjs";
+import { M } from "../UIStyleHandler-BrxVR-qc.mjs";
+import { R as RoundSquare, I as Img, T as Text } from "../Text-hadv7THv.mjs";
+class Button extends UIComponent {
   setup() {
     super.setup();
-    let e = this.getComponent(i);
-    e || (e = new i(), this.addComponent(e)), e.setStyle(
+    this.addRenderer(new ButtonRenderer());
+  }
+}
+class Card extends UIComponent {
+  setup() {
+    super.setup();
+    let uiStyle = this.getComponent(UIStyle);
+    if (!uiStyle) {
+      uiStyle = new UIStyle();
+      this.addComponent(uiStyle);
+    }
+    uiStyle.setStyle(
       {
-        color: new p(255, 255, 255, 1),
+        color: new RGB(255, 255, 255, 1),
         borderRadius: 32
       },
-      !0
+      true
     );
-    let s = new d(
-      new i({
+    let cardHeader = new Div(
+      new UIStyle({
         height: 64,
         borderRadius: [32, 32, 0, 0],
-        color: new p(220, 220, 220)
+        color: new RGB(220, 220, 220)
       })
-    ), h = new d(
-      new i({
+    );
+    let cardBody = new Div(
+      new UIStyle({
         borderRadius: [8],
         margin: [32],
-        color: new p(255, 255, 255, 1),
+        color: new RGB(255, 255, 255, 1),
         align: "center"
       })
     );
-    this.addChild(s), this.addChild(h), this.setDefaultSlot(h), this.setSlot("header", s), this.addRenderer(new u());
+    this.addChild(cardHeader);
+    this.addChild(cardBody);
+    this.setDefaultSlot(cardBody);
+    this.setSlot("header", cardHeader);
+    this.addRenderer(new DivRenderer());
   }
 }
-class I extends n {
+class DebugDiv extends UIComponent {
   setup() {
-    super.setup(), this.addRenderer(new y());
+    super.setup();
+    this.addRenderer(new DebugDivRenderer());
   }
 }
-class d extends n {
+class Div extends UIComponent {
   setup() {
-    super.setup(), this.addRenderer(new u());
+    super.setup();
+    this.addRenderer(new DivRenderer());
   }
 }
-class v extends n {
+class Label extends UIComponent {
   constructor() {
     super(...arguments);
-    o(this, "text");
+    __publicField(this, "text");
   }
   setup() {
-    super.setup(), this.reactToEvents = !1;
-    let s = this.getComponent(i);
-    s || (s = new i(), this.addComponent(s)), s.setStyle(
+    super.setup();
+    this.reactToEvents = false;
+    let uiStyle = this.getComponent(UIStyle);
+    if (!uiStyle) {
+      uiStyle = new UIStyle();
+      this.addComponent(uiStyle);
+    }
+    uiStyle.setStyle(
       {
         height: "100%"
       },
-      !0
-    ), this.addRenderer(new c());
+      true
+    );
+    this.addRenderer(new LabelRenderer());
   }
-  setText(s) {
-    this.text = s;
+  setText(text) {
+    this.text = text;
   }
 }
-class f extends r {
+class ButtonRenderer extends UIRenderer {
   constructor() {
     super(...arguments);
-    o(this, "shape");
-    o(this, "style");
+    __publicField(this, "shape");
+    __publicField(this, "style");
   }
   setup() {
-    super.setup(), this.style = this.uiComponent.getComponent(i), this.shape = new a(
+    super.setup();
+    this.style = this.uiComponent.getComponent(UIStyle);
+    this.shape = new RoundSquare(
       this.uiComponent.transform.position,
       this.uiComponent.transform.size,
       this.style.borderRadius,
       this.style.color
-    ), this.shape = new C("/button.png");
+    );
+    this.shape = new Img("/button.png");
   }
-  render(s) {
-    this.shape.position = this.uiComponent.transform.position, this.shape.size = this.uiComponent.transform.size, this.shape.color = this.style.color, this.shape.draw(s, this.uiComponent.transform);
-  }
-}
-class T extends r {
-  constructor() {
-    super(...arguments);
-    o(this, "shape", new a());
-  }
-  render(s) {
-    this.shape.position.sub(s.origin), this.shape.draw(s);
+  render(viewer) {
+    this.shape.position = this.uiComponent.transform.position;
+    this.shape.size = this.uiComponent.transform.size;
+    this.shape.color = this.style.color;
+    this.shape.draw(viewer, this.uiComponent.transform);
   }
 }
-class y extends r {
+class CardRenderer extends UIRenderer {
   constructor() {
     super(...arguments);
-    o(this, "shape");
-    o(this, "style");
+    __publicField(this, "shape", new RoundSquare());
+  }
+  render(viewer) {
+    this.shape.position.sub(viewer.origin);
+    this.shape.draw(viewer);
+  }
+}
+class DebugDivRenderer extends UIRenderer {
+  constructor() {
+    super(...arguments);
+    __publicField(this, "shape");
+    __publicField(this, "style");
   }
   setup() {
-    super.setup(), this.style = this.uiComponent.getComponent(i), this.shape = new a(
+    super.setup();
+    this.style = this.uiComponent.getComponent(UIStyle);
+    this.shape = new RoundSquare(
       this.uiComponent.transform.position,
       this.uiComponent.transform.size,
       this.style.borderRadius,
       this.style.color
     );
   }
-  render(s) {
-    this.shape.position = this.uiComponent.transform.position, this.shape.size = this.uiComponent.transform.size, this.shape.rotation = this.uiComponent.transform.rotation, this.shape.shadowBlur = this.style.shadowBlur, this.shape.shadowColor = this.style.shadowColor, console.log("render", this.style), this.shape.draw(s);
+  render(viewer) {
+    this.shape.position = this.uiComponent.transform.position;
+    this.shape.size = this.uiComponent.transform.size;
+    this.shape.rotation = this.uiComponent.transform.rotation;
+    this.shape.shadowBlur = this.style.shadowBlur;
+    this.shape.shadowColor = this.style.shadowColor;
+    console.log("render", this.style);
+    this.shape.draw(viewer);
   }
 }
-class u extends r {
+class DivRenderer extends UIRenderer {
   constructor() {
     super(...arguments);
-    o(this, "shape");
-    o(this, "style");
+    __publicField(this, "shape");
+    __publicField(this, "style");
   }
   setup() {
-    super.setup(), this.style = this.uiComponent.getComponent(i), this.shape = new a(
+    super.setup();
+    this.style = this.uiComponent.getComponent(UIStyle);
+    this.shape = new RoundSquare(
       this.uiComponent.transform.position,
       this.uiComponent.transform.size,
       this.style.borderRadius,
       this.style.color
     );
   }
-  render(s) {
-    this.shape.position = this.uiComponent.transform.position, this.shape.size = this.uiComponent.transform.size, this.shape.rotation = this.uiComponent.transform.rotation, this.shape.shadowBlur = this.style.shadowBlur, this.shape.shadowColor = this.style.shadowColor, this.shape.draw(s);
+  render(viewer) {
+    this.shape.position = this.uiComponent.transform.position;
+    this.shape.size = this.uiComponent.transform.size;
+    this.shape.rotation = this.uiComponent.transform.rotation;
+    this.shape.shadowBlur = this.style.shadowBlur;
+    this.shape.shadowColor = this.style.shadowColor;
+    this.shape.draw(viewer);
   }
 }
-class c extends r {
+class LabelRenderer extends UIRenderer {
   constructor() {
     super(...arguments);
-    o(this, "shape");
-    o(this, "style");
+    __publicField(this, "shape");
+    __publicField(this, "style");
   }
   setup() {
-    super.setup(), this.style = this.uiComponent.getComponent(i), this.shape = new w(
+    super.setup();
+    this.style = this.uiComponent.getComponent(UIStyle);
+    this.shape = new Text(
       this.uiComponent.text,
       this.uiComponent.transform.position,
       this.style.color,
       this.style.fontSize
-    ), new FontFace("BraahOne", "url(/BraahOne-Regular.ttf)").load().then((h) => {
-      document.fonts.add(h);
+    );
+    let f = new FontFace("BraahOne", "url(/BraahOne-Regular.ttf)");
+    f.load().then((font) => {
+      document.fonts.add(font);
     });
   }
-  render(s) {
-    this.shape.position = this.uiComponent.transform.position, this.shape.size = this.uiComponent.transform.size, this.shape.position.x += this.shape.size.x / 2, this.shape.position.y += this.shape.size.y / 2, this.shape.draw(s);
+  render(viewer) {
+    this.shape.position = this.uiComponent.transform.position;
+    this.shape.size = this.uiComponent.transform.size;
+    this.shape.position.x += this.shape.size.x / 2;
+    this.shape.position.y += this.shape.size.y / 2;
+    this.shape.draw(viewer);
   }
 }
 export {
-  S as Button,
-  f as ButtonRenderer,
-  D as Card,
-  T as CardRenderer,
-  I as DebugDiv,
-  y as DebugDivRenderer,
-  d as Div,
-  u as DivRenderer,
-  v as Label,
-  c as LabelRenderer,
-  F as MainLayout
+  Button,
+  ButtonRenderer,
+  Card,
+  CardRenderer,
+  DebugDiv,
+  DebugDivRenderer,
+  Div,
+  DivRenderer,
+  Label,
+  LabelRenderer,
+  M as MainLayout
 };
+//# sourceMappingURL=Components.es.js.map

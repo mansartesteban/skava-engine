@@ -14,5 +14,4 @@ import RGB from "@/Engine/RGB";
 import Rotation from "@/Engine/Rotation";
 import Vector2 from "@/Engine/Vector2";
 import CanvasRenderer from "@/Engine/Renderers/CanvasRenderer";
-import Renderer from "@/Engine/Renderers/Renderer";
-export { Application, Viewer, Viewer2d, CameraManager, Component, Observer, Project, Scene, Engine, Entity, EntityManager, Controls, RGB, Rotation, Vector2, CanvasRenderer, Renderer };
+export { Application, Viewer, Viewer2d, CameraManager, Component, Observer, Project, Scene, Engine, Entity, EntityManager, Controls, RGB, Rotation, Vector2, CanvasRenderer };

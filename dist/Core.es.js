@@ -1,57 +1,71 @@
-var T = Object.defineProperty;
-var f = (s) => {
-  throw TypeError(s);
+var __defProp = Object.defineProperty;
+var __typeError = (msg) => {
+  throw TypeError(msg);
 };
-var g = (s, e, t) => e in s ? T(s, e, { enumerable: !0, configurable: !0, writable: !0, value: t }) : s[e] = t;
-var i = (s, e, t) => g(s, typeof e != "symbol" ? e + "" : e, t), w = (s, e, t) => e.has(s) || f("Cannot " + t);
-var c = (s, e, t) => (w(s, e, "read from private field"), t ? t.call(s) : e.get(s)), d = (s, e, t) => e.has(s) ? f("Cannot add the same private member more than once") : e instanceof WeakSet ? e.add(s) : e.set(s, t), p = (s, e, t, r) => (w(s, e, "write to private field"), r ? r.call(s, t) : e.set(s, t), t);
-import { O as E, E as D } from "./Entity-BaUXzpC6.mjs";
-import "./Time-DerQyAzN.mjs";
-import { Timer as b } from "./Utils.es.js";
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+var __accessCheck = (obj, member, msg) => member.has(obj) || __typeError("Cannot " + msg);
+var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
+var __privateAdd = (obj, member, value) => member.has(obj) ? __typeError("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
+var _activeCamera, _loopHasBeenWarned;
+import { O as Observer, E as Entity } from "./Entity-BOHIz7Zf.mjs";
+import "./Time-D6jb6SoV.mjs";
+import { Timer } from "./Utils.es.js";
 import "uuid";
-import { V as m } from "./Vector2-DsmbReYL.mjs";
-import { C as H, R as _, a as q } from "./Vector2-DsmbReYL.mjs";
-import { I as v } from "./ImplementError-CTSVZ3oY.mjs";
-import { U as x } from "./UndefinedError-Csm4JJ32.mjs";
-import { C as W } from "./Controls-C8IZ0c7f.mjs";
-class I {
+import { V as Vector2 } from "./Vector2-Dy-12kp6.mjs";
+import { C, R, a } from "./Vector2-Dy-12kp6.mjs";
+import { I as ImplementError } from "./ImplementError-BSFja-GU.mjs";
+import { U as UndefinedError } from "./UndefinedError-Lw1RlA1b.mjs";
+import { C as C2 } from "./Controls-COyvZOen.mjs";
+class Application {
   static start() {
-    return this.engine = new z(), new Promise((e) => {
-      e(!0);
+    this.engine = new Engine();
+    return new Promise((resolve) => {
+      resolve(true);
     });
   }
-  static loadProject(e) {
-    this.activeProject = new e(), this.engine.setProject(this.activeProject);
+  static loadProject(project) {
+    this.activeProject = new project();
+    this.engine.setProject(this.activeProject);
   }
 }
-i(I, "activeProject"), i(I, "engine");
-class O {
+__publicField(Application, "activeProject");
+__publicField(Application, "engine");
+class Viewer {
   constructor() {
-    i(this, "options");
+    __publicField(this, "options");
   }
   refresh() {
   }
   render() {
-    throw new v("render", "Viewer");
+    throw new ImplementError("render", "Viewer");
   }
 }
-class N {
-  constructor(e, t) {
-    i(this, "options");
-    i(this, "node");
-    i(this, "renderer");
-    i(this, "size", new m());
-    i(this, "origin", new m());
-    this.node = e, this.options = { ...this.options, ...t }, this.renderer = new C(this.options), this.size = this.options.size, this.render();
+class Viewer2d {
+  constructor(node, options) {
+    __publicField(this, "options");
+    __publicField(this, "node");
+    __publicField(this, "renderer");
+    __publicField(this, "size", new Vector2());
+    __publicField(this, "origin", new Vector2());
+    this.node = node;
+    this.options = { ...this.options, ...options };
+    this.renderer = new CanvasRenderer(this.options);
+    this.size = this.options.size;
+    this.render();
+    console.log("ici??? or here");
   }
   get ctx() {
     return this.renderer.ctx;
   }
   center() {
-    this.origin = this.size.clone().divide(2), this.ctx.translate(this.origin.x, this.origin.y);
+    this.origin = this.size.clone().divide(2);
+    this.ctx.translate(this.origin.x, this.origin.y);
   }
   render() {
-    this.ctx.clearRect(0, 0, this.size.x, this.size.y), this.node.appendChild(this.renderer.domElement);
+    this.ctx.clearRect(0, 0, this.size.x, this.size.y);
+    this.node.appendChild(this.renderer.domElement);
   }
   refresh() {
     this.ctx.clearRect(
@@ -62,181 +76,228 @@ class N {
     );
   }
 }
-var o;
-class U {
-  constructor(e, t) {
-    d(this, o, null);
-    i(this, "cameras", {});
-    this.renderer = t, this.scene = e;
+class CameraManager {
+  constructor(scene, renderer) {
+    __privateAdd(this, _activeCamera, null);
+    __publicField(this, "cameras", {});
+    this.renderer = renderer;
+    this.scene = scene;
   }
   get activeCamera() {
-    return this.cameras[c(this, o)];
+    return this.cameras[__privateGet(this, _activeCamera)];
   }
-  activateCamera(e) {
-    p(this, o, e);
+  activateCamera(name) {
+    __privateSet(this, _activeCamera, name);
   }
-  addCamera(e, t) {
-    this.cameras[e] = t;
+  addCamera(name, camera) {
+    this.cameras[name] = camera;
   }
 }
-o = new WeakMap();
-const j = {
+_activeCamera = new WeakMap();
+const Events$1 = {
   INITIALIZED: "INITIALIZED"
 };
-class Y {
-  constructor(e) {
-    i(this, "scenes", []);
-    i(this, "options", {
+class Project {
+  constructor(options) {
+    __publicField(this, "scenes", []);
+    __publicField(this, "options", {
       name: "Skava - Snake",
       mountOn: "#app",
-      isDev: !1
+      isDev: false
     });
-    i(this, "loopCallback");
-    i(this, "observer");
-    this.options = { ...this.options, ...e }, this.observer = new E(Object.keys(j)), setTimeout(this.setup.bind(this), 0);
+    __publicField(this, "loopCallback");
+    __publicField(this, "observer");
+    this.options = { ...this.options, ...options };
+    this.observer = new Observer(Object.keys(Events$1));
+    setTimeout(this.setup.bind(this), 0);
   }
-  addScene(e, t) {
-    e.createViewer(this.options.mountOn), Promise.resolve(e.setup()).then(() => {
-      e.setupFinished = !0;
-    }), this.scenes.push(e);
+  addScene(scene, options) {
+    scene.createViewer(this.options.mountOn);
+    Promise.resolve(scene.setup()).then(() => {
+      scene.setupFinished = true;
+    });
+    this.scenes.push(scene);
   }
-  getScene(e) {
-    return this.scenes.find((t) => t.name === e);
+  getScene(sceneName) {
+    return this.scenes.find((scene) => scene.name === sceneName);
   }
   setup() {
-    throw new v("setup", "Project");
+    throw new ImplementError("setup", "Project");
   }
-  update(e, t) {
-    this.scenes.forEach((r) => r.update(e, t)), this.loop(e, t);
+  update(deltaTime, currentTime) {
+    this.scenes.forEach((scene) => scene.update(deltaTime, currentTime));
+    this.loop(deltaTime, currentTime);
   }
-  loop(e, t) {
+  loop(deltaTime, currentTime) {
   }
 }
-var a;
-class Z {
-  constructor(e) {
-    i(this, "setupFinished", !1);
-    i(this, "name", "");
-    i(this, "entityManager", null);
-    i(this, "viewer");
-    d(this, a, !1);
-    this.name = e, this.entityManager = new u(this);
+class Scene {
+  constructor(name) {
+    __publicField(this, "setupFinished", false);
+    __publicField(this, "name", "");
+    __publicField(this, "entityManager", null);
+    __publicField(this, "viewer");
+    __privateAdd(this, _loopHasBeenWarned, false);
+    this.name = name;
+    this.entityManager = new EntityManager(this);
   }
-  createViewer(e, t) {
-    let r = document.querySelector(e);
-    this.viewer = new N(r, {
-      size: new m(window.innerWidth, window.innerHeight),
-      ...t
+  createViewer(mountOn, options) {
+    let app = document.querySelector(mountOn);
+    this.viewer = new Viewer2d(app, {
+      size: new Vector2(window.innerWidth, window.innerHeight),
+      ...options
     });
   }
-  add(e, t) {
-    this.entityManager.add(e, t);
+  add(entity, executeSetup) {
+    this.entityManager.add(entity, executeSetup);
   }
-  remove(e) {
-    this.entityManager.delete(e);
+  remove(entityToDelete) {
+    this.entityManager.delete(entityToDelete);
   }
-  update(e, t) {
-    var r;
-    this.setupFinished && ((r = this.viewer) == null || r.refresh(e), this.loop(e, t), this.entityManager.update(e, t));
+  update(deltaTime, currentTime) {
+    var _a;
+    if (this.setupFinished) {
+      (_a = this.viewer) == null ? void 0 : _a.refresh(deltaTime);
+      this.loop(deltaTime, currentTime);
+      this.entityManager.update(deltaTime, currentTime);
+    }
   }
   setup() {
     console.warn(
       `"setup()" method is not implemented on the scene ${this.constructor.name}`
     );
   }
-  loop(e, t) {
-    c(this, a) || (p(this, a, !0), console.warn(
-      `"loop()" method is not implemented on the scene ${this.constructor.name}`
-    ));
-  }
-}
-a = new WeakMap();
-const l = {
-  INITIALIZED: "INITIALIZED"
-};
-class z {
-  constructor() {
-    i(this, "project");
-    i(this, "observer");
-    i(this, "lastUpdate", 0);
-    i(this, "fpsMeter");
-    i(this, "i", 0);
-    this.observer = new E(l), this.observer.$on(l.INITIALIZED, this.loop.bind(this)), this.timer = new b(), this.fpsMeter = document.createElement("div"), this.fpsMeter.classList.add("fps-meter"), this.fpsMeter.setAttribute("last-update", "0"), document.body.appendChild(this.fpsMeter);
-  }
-  setProject(e) {
-    this.project = e, this.observer.$emit(l.INITIALIZED);
-  }
-  async loop(e = 0) {
-    let t = (e - parseFloat(this.fpsMeter.getAttribute("last-update"))) / 1e3, r = (e - this.lastUpdate) / 1e3;
-    t > 0.5 && (this.fpsMeter.innerText = (1 / r).toFixed(), this.fpsMeter.setAttribute("last-update", e + "")), this.project && this.project.update(r, e), this.lastUpdate = e, window.requestAnimationFrame(this.loop.bind(this));
-  }
-}
-const n = class n {
-  constructor(e) {
-    i(this, "observer", new E(n.EVENTS));
-    i(this, "entities", []);
-    i(this, "scene", null);
-    if (!e)
-      throw new x("scene");
-    this.scene = e;
-  }
-  delete(e) {
-    let t = this.entities.findIndex((r) => typeof e == "string" ? r.uuid === e : e instanceof D ? r === e : !1);
-    if (t !== -1) {
-      let r = this.entities[t];
-      this.observer.$emit(n.EVENTS.ENTITY_DELETED, r);
-      for (let h = r.components.length - 1; h >= 0; h--)
-        r.components.splice(h, 1);
-      delete this.entities[t], this.entities.splice(t, 1);
+  loop(deltaTime, currentTime) {
+    if (!__privateGet(this, _loopHasBeenWarned)) {
+      __privateSet(this, _loopHasBeenWarned, true);
+      console.warn(
+        `"loop()" method is not implemented on the scene ${this.constructor.name}`
+      );
     }
   }
-  add(e, t = !0) {
-    e.scene = this.scene, e.children && e.children.forEach((r) => this.add(r)), t && Promise.resolve(e.setup()).then(() => {
-      e.observer.$emit("SETUP_FINISHED");
-    }), this.entities.push(e), this.observer.$emit(n.EVENTS.ENTITY_ADDED, e);
+}
+_loopHasBeenWarned = new WeakMap();
+const Events = {
+  INITIALIZED: "INITIALIZED"
+};
+class Engine {
+  constructor() {
+    __publicField(this, "project");
+    __publicField(this, "observer");
+    __publicField(this, "lastUpdate", 0);
+    __publicField(this, "fpsMeter");
+    __publicField(this, "i", 0);
+    this.observer = new Observer(Events);
+    this.observer.$on(Events.INITIALIZED, this.loop.bind(this));
+    this.timer = new Timer();
+    this.fpsMeter = document.createElement("div");
+    this.fpsMeter.classList.add("fps-meter");
+    this.fpsMeter.setAttribute("last-update", "0");
+    document.body.appendChild(this.fpsMeter);
   }
-  update(e, t) {
-    this.entities.forEach((r) => r.update(e, t));
+  setProject(project) {
+    this.project = project;
+    this.observer.$emit(Events.INITIALIZED);
+  }
+  async loop(currentTime = 0) {
+    let deltaTimeFps = (currentTime - parseFloat(this.fpsMeter.getAttribute("last-update"))) / 1e3;
+    let deltaTime = (currentTime - this.lastUpdate) / 1e3;
+    if (deltaTimeFps > 0.5) {
+      this.fpsMeter.innerText = (1 / deltaTime).toFixed();
+      this.fpsMeter.setAttribute("last-update", currentTime + "");
+    }
+    if (this.project) {
+      this.project.update(deltaTime, currentTime);
+    }
+    this.lastUpdate = currentTime;
+    window.requestAnimationFrame(this.loop.bind(this));
+  }
+}
+const _EntityManager = class _EntityManager {
+  constructor(scene) {
+    __publicField(this, "observer", new Observer(_EntityManager.EVENTS));
+    __publicField(this, "entities", []);
+    __publicField(this, "scene", null);
+    if (!scene) {
+      throw new UndefinedError("scene");
+    }
+    this.scene = scene;
+  }
+  delete(entityToDelete) {
+    let foundIndex = this.entities.findIndex((entity) => {
+      if (typeof entityToDelete === "string") {
+        return entity.uuid === entityToDelete;
+      } else if (entityToDelete instanceof Entity) {
+        return entity === entityToDelete;
+      }
+      return false;
+    });
+    if (foundIndex !== -1) {
+      let entityFound = this.entities[foundIndex];
+      this.observer.$emit(_EntityManager.EVENTS.ENTITY_DELETED, entityFound);
+      for (let i = entityFound.components.length - 1; i >= 0; i--) {
+        entityFound.components.splice(i, 1);
+      }
+      delete this.entities[foundIndex];
+      this.entities.splice(foundIndex, 1);
+    }
+  }
+  add(entity, executeSetup = true) {
+    entity.scene = this.scene;
+    if (entity.children) {
+      entity.children.forEach((child) => this.add(child));
+    }
+    if (executeSetup) {
+      Promise.resolve(entity.setup()).then(() => {
+        entity.observer.$emit("SETUP_FINISHED");
+      });
+    }
+    this.entities.push(entity);
+    this.observer.$emit(_EntityManager.EVENTS.ENTITY_ADDED, entity);
+  }
+  update(deltaTime, currentTime) {
+    this.entities.forEach((entity) => entity.update(deltaTime, currentTime));
   }
 };
-i(n, "EVENTS", Object.freeze({
+__publicField(_EntityManager, "EVENTS", Object.freeze({
   ENTITY_ADDED: "ENTITY_ADDED",
   ENTITY_DELETED: "ENTITY_DELETED"
 }));
-let u = n;
-class C extends A {
-  constructor(t) {
-    super();
-    i(this, "options");
-    i(this, "domElement");
-    this.options = t, this.createDomElement();
+let EntityManager = _EntityManager;
+class CanvasRenderer {
+  constructor(options) {
+    __publicField(this, "options");
+    __publicField(this, "domElement");
+    this.options = options;
+    this.createDomElement();
+    console.log("ici???");
   }
   get ctx() {
-    var t;
-    return (t = this.domElement) == null ? void 0 : t.getContext("2d");
+    var _a;
+    return (_a = this.domElement) == null ? void 0 : _a.getContext("2d");
   }
   createDomElement() {
-    this.domElement = document.createElement("canvas"), this.domElement.width = this.options.size.x, this.domElement.height = this.options.size.y;
+    this.domElement = document.createElement("canvas");
+    this.domElement.width = this.options.size.x;
+    this.domElement.height = this.options.size.y;
   }
 }
-class A {
-}
 export {
-  I as Application,
-  U as CameraManager,
-  C as CanvasRenderer,
-  H as Component,
-  W as Controls,
-  z as Engine,
-  D as Entity,
-  u as EntityManager,
-  E as Observer,
-  Y as Project,
-  _ as RGB,
-  A as Renderer,
-  q as Rotation,
-  Z as Scene,
-  m as Vector2,
-  O as Viewer,
-  N as Viewer2d
+  Application,
+  CameraManager,
+  CanvasRenderer,
+  C as Component,
+  C2 as Controls,
+  Engine,
+  Entity,
+  EntityManager,
+  Observer,
+  Project,
+  R as RGB,
+  a as Rotation,
+  Scene,
+  Vector2,
+  Viewer,
+  Viewer2d
 };
+//# sourceMappingURL=Core.es.js.map

@@ -1,53 +1,72 @@
-var f = Object.defineProperty;
-var o = (a) => {
-  throw TypeError(a);
+var __defProp = Object.defineProperty;
+var __typeError = (msg) => {
+  throw TypeError(msg);
 };
-var k = (a, e, t) => e in a ? f(a, e, { enumerable: !0, configurable: !0, writable: !0, value: t }) : a[e] = t;
-var n = (a, e, t) => k(a, typeof e != "symbol" ? e + "" : e, t), p = (a, e, t) => e.has(a) || o("Cannot " + t);
-var l = (a, e, t) => (p(a, e, "read from private field"), t ? t.call(a) : e.get(a)), r = (a, e, t) => e.has(a) ? o("Cannot add the same private member more than once") : e instanceof WeakSet ? e.add(a) : e.set(a, t), h = (a, e, t, i) => (p(a, e, "write to private field"), i ? i.call(a, t) : e.set(a, t), t);
-import { T as u } from "./Time-DerQyAzN.mjs";
-var c, s;
-class w {
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+var __accessCheck = (obj, member, msg) => member.has(obj) || __typeError("Cannot " + msg);
+var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
+var __privateAdd = (obj, member, value) => member.has(obj) ? __typeError("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
+var _startTime, _time;
+import { T as Time } from "./Time-D6jb6SoV.mjs";
+class Timer {
   constructor() {
-    r(this, c);
-    r(this, s);
-    n(this, "executionStack", []);
-    h(this, c, performance.now()), h(this, s, l(this, c));
+    __privateAdd(this, _startTime);
+    __privateAdd(this, _time);
+    __publicField(this, "executionStack", []);
+    __privateSet(this, _startTime, performance.now());
+    __privateSet(this, _time, __privateGet(this, _startTime));
   }
   get delta() {
-    return u.delta(l(this, c), performance.now());
+    return Time.delta(__privateGet(this, _startTime), performance.now());
   }
   reset() {
-    h(this, c, performance.now()), h(this, s, l(this, c));
+    __privateSet(this, _startTime, performance.now());
+    __privateSet(this, _time, __privateGet(this, _startTime));
   }
-  executeAfter(e, t) {
+  executeAfter(callback, delay) {
     this.executionStack.push({
-      delay: t,
-      repeat: !1,
-      callback: e,
-      lastCall: l(this, s)
+      delay,
+      repeat: false,
+      callback,
+      lastCall: __privateGet(this, _time)
     });
   }
-  executeEach(e, t) {
+  executeEach(delay, callback) {
     this.executionStack.push({
-      delay: e,
-      repeat: !0,
-      callback: t,
-      lastCall: l(this, s)
+      delay,
+      repeat: true,
+      callback,
+      lastCall: __privateGet(this, _time)
     });
   }
   watchCallbacks() {
-    let e = [];
-    this.executionStack.forEach((t, i) => {
-      t.repeat ? u.delta(l(this, s), t.lastCall) >= t.delay && (t.callback(), t.lastCall = l(this, s)) : (this.delta >= t.delay && t.callback(), e.push(i));
-    }), e.forEach((t, i) => this.executionStack.splice(i, 1));
+    let itemsToDelete = [];
+    this.executionStack.forEach((item, index) => {
+      if (!item.repeat) {
+        if (this.delta >= item.delay) {
+          item.callback();
+        }
+        itemsToDelete.push(index);
+      } else {
+        if (Time.delta(__privateGet(this, _time), item.lastCall) >= item.delay) {
+          item.callback();
+          item.lastCall = __privateGet(this, _time);
+        }
+      }
+    });
+    itemsToDelete.forEach((_, index) => this.executionStack.splice(index, 1));
   }
   update() {
-    h(this, s, performance.now()), this.watchCallbacks();
+    __privateSet(this, _time, performance.now());
+    this.watchCallbacks();
   }
 }
-c = new WeakMap(), s = new WeakMap();
+_startTime = new WeakMap();
+_time = new WeakMap();
 export {
-  u as Time,
-  w as Timer
+  Time,
+  Timer
 };
+//# sourceMappingURL=Utils.es.js.map
