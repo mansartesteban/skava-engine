@@ -2,8 +2,8 @@
   "name": "skava-core",
   "version": "1.0.8",
   "description": "",
-  "main": "./dist/index.umd.js",
-  "module": "./dist/index.es.js",
+  "main": "./dist/skava-engine.umd.js",
+  "module": "./dist/skava-engine.es.js",
   "style": "./dist/skava-core.css",
   "types": "./dist/index.d.ts",
   "exports": {
