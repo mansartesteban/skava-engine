@@ -1,4 +1,4 @@
-import { degreesToRadians, radiansToDegrees } from "./Numeric"
+import { degreesToRadians, radiansToDegrees } from "./Lib/Numeric";
 
 /**
  * A helper class which angle rotation (i.e. angle) and simplify conversion to radians or degrees

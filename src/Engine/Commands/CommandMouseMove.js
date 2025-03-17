@@ -1,4 +1,4 @@
-import ImplementError from "@/Application/Errors/ImplementError";
+import ImplementError from "@errors/ImplementError";
 import Command from "./Command";
 
 class CommandMouseMove extends Command {

@@ -1,5 +1,5 @@
 import TransformComponent from "../Components/TransformComponent";
-import RGB from "../Lib/RGB";
+import RGB from "../RGB";
 
 class Img {
   #path;

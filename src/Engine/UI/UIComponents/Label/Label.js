@@ -1,4 +1,3 @@
-import RGB from "@/Engine/Lib/RGB";
 import UIComponent from "../../Core/UIComponent";
 import UIStyle from "../../Core/UIStyle";
 import LabelRenderer from "./LabelRenderer";

@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "checkJs": true,
+    "target": "ESNext",
+    "baseUrl": "./",
+    "paths": {
+      "@errors/*": ["src/Application/Errors/*"],
+      "@/*": ["src/*"],
+      "@snake/*": ["Games/Snake/*"]
+    },
+    "preserveSymlinks": true
+  },
+  "exclude": ["node_modules"],
+  "include": ["src/**/*.js", "Games/**/*.js"]
+}

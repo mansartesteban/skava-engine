@@ -1,8 +1,7 @@
 import UIComponent from "../../Core/UIComponent";
 import UIStyle from "../../Core/UIStyle";
 import Div from "../Div/Div";
-import RGB from "@/Engine/Lib/RGB";
-import DebugDivRenderer from "../DebugDiv/DebugDivRenderer";
+import RGB from "@/Engine/RGB";
 import DivRenderer from "../Div/DivRenderer";
 
 class Card extends UIComponent {

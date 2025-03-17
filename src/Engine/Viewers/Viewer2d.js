@@ -1,4 +1,4 @@
-import Vector2 from "../Lib/Vector2";
+import Vector2 from "../Vector2";
 import CanvasRenderer from "../Renderers/CanvasRenderer";
 
 class Viewer2d {

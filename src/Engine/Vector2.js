@@ -1,5 +1,5 @@
-import { clamp } from "./Numeric"
-import Rotation from "./Rotation"
+import { clamp } from "./Lib/Numeric";
+import Rotation from "./Rotation";
 
 class Vector2 {
   static X = new Vector2(1, 0);
@@ -42,7 +42,7 @@ class Vector2 {
    * Returns the squared Euclidian distance of this vector
    */
   get squid() {
-    return this.x ** 2 + this.y ** 2
+    return this.x ** 2 + this.y ** 2;
   }
 
   /**

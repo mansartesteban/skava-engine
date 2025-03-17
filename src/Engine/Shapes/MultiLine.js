@@ -1,6 +1,5 @@
-import RGB from "../Lib/RGB"
-import Vector2 from "../Lib/Vector2"
-import Draw from "./Draw"
+import RGB from "../RGB";
+import Draw from "./Draw";
 
 class MultiLine {
   #points;
@@ -8,12 +7,7 @@ class MultiLine {
   #dashes;
   #thickness;
 
-  constructor(
-    points = [],
-    color = new RGB(),
-    thickness = 1,
-    dashes = []
-  ) {
+  constructor(points = [], color = new RGB(), thickness = 1, dashes = []) {
     this.#points = points;
     this.#color = color;
     this.#dashes = dashes;
@@ -57,12 +51,14 @@ class MultiLine {
       ctx.strokeStyle = this.color._toString;
       ctx.lineWidth = this.thickness;
 
-      for( let i = 0 ; i < this.points.length -1 ; i++) {
+      for (let i = 0; i < this.points.length - 1; i++) {
         ctx.moveTo(this.points[i].x, this.points[i].y);
-        ctx.lineTo(this.points[i+1].x, this.points[i+1].y);
-        
+        ctx.lineTo(this.points[i + 1].x, this.points[i + 1].y);
       }
-      ctx.moveTo(this.points[this.points.length - 1].x, this.points[this.points.length - 1].y);
+      ctx.moveTo(
+        this.points[this.points.length - 1].x,
+        this.points[this.points.length - 1].y
+      );
       ctx.stroke();
 
       return ["strokeStyle", "setLineDash", "lineWidth"];

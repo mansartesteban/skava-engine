@@ -4,7 +4,7 @@ import Entity from "@/Engine/Entity";
 import TransformComponent from "@/Engine/Components/TransformComponent";
 import UIStyle from "./UIStyle";
 import Observer from "@/Engine/Observer";
-import Vector2 from "@/Engine/Lib/Vector2";
+import Vector2 from "@/Engine/Vector2";
 
 class UIComponent extends Entity {
   #renderer;

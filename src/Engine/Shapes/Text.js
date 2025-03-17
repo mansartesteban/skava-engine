@@ -1,5 +1,5 @@
-import RGB from "../Lib/RGB";
-import Vector2 from "../Lib/Vector2";
+import RGB from "../RGB";
+import Vector2 from "../Vector2";
 import Draw from "./Draw";
 
 class Text {

@@ -3,7 +3,7 @@ import OnClick from "../Events/OnClick";
 import UIComponent from "./UIComponent";
 import MainLayout from "../UIComponents/MainLayout";
 import UIStyle from "./UIStyle";
-import RGB from "@/Engine/Lib/RGB";
+import RGB from "@/Engine/RGB";
 
 class UIManager {
   #uiComponents = [];

@@ -1,4 +1,4 @@
-import Time from "@lib/Time/Time";
+import Time from "./Time";
 
 class Timer {
   #startTime;

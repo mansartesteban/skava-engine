@@ -1,5 +1,5 @@
-import RGB from "../Lib/RGB"
-import Vector2 from "../Lib/Vector2"
+import RGB from "../RGB";
+import Vector2 from "../Vector2";
 
 const defaultsAttributes = {
   strokeStyle: "#000",
@@ -22,14 +22,7 @@ class Draw {
     }
   }
 
-  static strokeRect(
-    ctx,
-    x,
-    y,
-    w,
-    h,
-    c = RGB.Green
-  ) {
+  static strokeRect(ctx, x, y, w, h, c = RGB.Green) {
     let p = new Vector2(x, y);
     let thickness = 1;
     ctx.fillStyle = c._toString || "#ff0000";

@@ -1,6 +1,6 @@
 import WrongInstanceError from "@/Application/Errors/WrongInstanceError";
 import UIStyle from "./UIStyle";
-import Vector2 from "@/Engine/Lib/Vector2";
+import Vector2 from "@/Engine/Vector2";
 
 class UIStyleHandler {
   #component;

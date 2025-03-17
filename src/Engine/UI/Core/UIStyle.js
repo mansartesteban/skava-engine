@@ -1,5 +1,5 @@
 import Component from "@/Engine/Component";
-import { getProperties } from "@/Engine/Lib/Objet";
+import { getProperties } from "@/Engine/Lib/Object";
 import UIStyleHandler from "./UIStyleHandler";
 
 class UIStyle extends Component {

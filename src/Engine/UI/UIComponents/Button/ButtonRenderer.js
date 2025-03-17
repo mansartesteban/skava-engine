@@ -1,4 +1,4 @@
-import RGB from "@/Engine/Lib/RGB";
+import RGB from "@/Engine/RGB";
 import RoundSquare from "@/Engine/Shapes/RoundSquare";
 import UIRenderer from "../../Core/UIRenderer";
 import UIStyle from "../../Core/UIStyle";

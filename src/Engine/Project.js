@@ -1,6 +1,5 @@
 import Observer from "@/Engine/Observer";
-import Scene from "./Scene";
-import ImplementError from "@/Application/Errors/ImplementError";
+import ImplementError from "@errors/ImplementError";
 
 const Events = {
   INITIALIZED: "INITIALIZED",

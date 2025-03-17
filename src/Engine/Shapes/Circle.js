@@ -1,6 +1,6 @@
-import RGB from "../Lib/RGB";
-import Rotation from "../Lib/Rotation";
-import Vector2 from "../Lib/Vector2";
+import RGB from "../RGB";
+import Rotation from "../Rotation";
+import Vector2 from "../Vector2";
 import Draw from "./Draw";
 
 class Circle {

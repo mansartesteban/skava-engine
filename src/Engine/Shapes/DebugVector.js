@@ -1,8 +1,8 @@
-import { clamp } from "../Lib/Numeric"
-import RGB from "../Lib/RGB"
-import Rotation from "../Lib/Rotation"
-import Vector2 from "../Lib/Vector2"
-import Draw from "./Draw"
+import { clamp } from "../Lib/Numeric";
+import RGB from "../RGB";
+import Rotation from "../Rotation";
+import Vector2 from "../Vector2";
+import Draw from "./Draw";
 
 class DebugVector {
   #from;
@@ -63,11 +63,13 @@ class DebugVector {
       let frontDirection = Vector2.from(this.to).to(this.from).normalize();
       let arrowSides = arrowSize * 2;
 
-      let left = frontDirection.clone()
+      let left = frontDirection
+        .clone()
         .rotate(new Rotation(Math.PI * 2))
         .multiply(arrowSides)
         .add(this.to);
-      let right = frontDirection.clone()
+      let right = frontDirection
+        .clone()
         .rotate(new Rotation(-Math.PI * 2))
         .multiply(arrowSides)
         .add(this.to);

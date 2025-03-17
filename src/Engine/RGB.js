@@ -1,4 +1,4 @@
-import { clamp, mapRange } from "./Numeric";
+import { clamp } from "./Lib/Numeric";
 
 /**
  * A helper class to handle colors with rgba channels

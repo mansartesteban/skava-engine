@@ -5,7 +5,7 @@ import CommandOnce from "./Commands/CommandOnce";
 import CommandSwipe from "./Commands/CommandSwipe";
 import CommandToggle from "./Commands/CommandToggle";
 import CommandTouchMaintain from "./Commands/CommandTouchMaintain";
-import Vector2 from "./Lib/Vector2";
+import Vector2 from "./Vector2";
 
 class Controls {
   stack = [];

@@ -1,6 +1,5 @@
 import EntityManager from "./EntityManager";
-import Vector2 from "./Lib/Vector2";
-import UIManager from "./UI/Core/UIManager";
+import Vector2 from "./Vector2";
 import Viewer2d from "./Viewers/Viewer2d";
 
 class Scene {
