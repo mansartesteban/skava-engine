@@ -1,5 +1,5 @@
-import RGB from "../RGB";
-import Draw from "./Draw";
+import { RGB } from "@/Bundles/Core";
+import { Draw } from "@/Bundles/Core/Shapes";
 
 class MultiLine {
   #points;

@@ -1,5 +1,4 @@
-import RGB from "../RGB";
-import Vector2 from "../Vector2";
+import { RGB, Vector2 } from "@/Bundles/Core";
 
 const defaultsAttributes = {
   strokeStyle: "#000",

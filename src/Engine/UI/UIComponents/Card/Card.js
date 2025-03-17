@@ -1,8 +1,6 @@
-import UIComponent from "../../Core/UIComponent";
-import UIStyle from "../../Core/UIStyle";
-import Div from "../Div/Div";
-import RGB from "@/Engine/RGB";
-import DivRenderer from "../Div/DivRenderer";
+import { UIComponent, UIStyle } from "@/Bundles/UI";
+import { Div, DivRenderer } from "@/Bundles/UI/Components";
+import { RGB } from "@/Bundles/Core";
 
 class Card extends UIComponent {
   setup() {

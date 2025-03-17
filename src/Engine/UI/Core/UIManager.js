@@ -1,9 +1,7 @@
-import Controls from "@/Engine/Controls";
-import OnClick from "../Events/OnClick";
-import UIComponent from "./UIComponent";
-import MainLayout from "../UIComponents/MainLayout";
-import UIStyle from "./UIStyle";
-import RGB from "@/Engine/RGB";
+import { Controls, RGB } from "@/Bundles/Core";
+import { OnClick } from "@/Bundles/UI/Events";
+import { UIComponent, UIStyle } from "@/Bundles/UI";
+import { MainLayout } from "@/Bundles/UI/Components";
 
 class UIManager {
   #uiComponents = [];

@@ -1,6 +1,4 @@
-import EntityManager from "./EntityManager";
-import Vector2 from "./Vector2";
-import Viewer2d from "./Viewers/Viewer2d";
+import { EntityManager, Viewer2d, Vector2 } from "@/Bundles/Core";
 
 class Scene {
   setupFinished = false;

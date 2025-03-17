@@ -1,6 +1,6 @@
-import Component from "@/Engine/Component";
-import { getProperties } from "@/Engine/Lib/Object";
-import UIStyleHandler from "./UIStyleHandler";
+import { Component } from "@/Bundles/Core";
+import { getProperties } from "@/Bundles/Utils/Object";
+import { UIStyleHandler } from "@/Bundles/UI";
 
 class UIStyle extends Component {
   #inherit = false;

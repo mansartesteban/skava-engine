@@ -1,5 +1,5 @@
-import Observer from "@/Engine/Observer";
-import ImplementError from "@errors/ImplementError";
+import { Observer } from "@/Bundles/Core";
+import { ImplementError } from "@/Bundles/Errors.js";
 
 const Events = {
   INITIALIZED: "INITIALIZED",

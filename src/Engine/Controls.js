@@ -1,11 +1,13 @@
-import CommandClick from "./Commands/CommandClick";
-import CommandHold from "./Commands/CommandHold";
-import CommandMouseMove from "./Commands/CommandMouseMove";
-import CommandOnce from "./Commands/CommandOnce";
-import CommandSwipe from "./Commands/CommandSwipe";
-import CommandToggle from "./Commands/CommandToggle";
-import CommandTouchMaintain from "./Commands/CommandTouchMaintain";
-import Vector2 from "./Vector2";
+import {
+  CommandClick,
+  CommandHold,
+  CommandMouseMove,
+  CommandOnce,
+  CommandSwipe,
+  CommandToggle,
+  CommandTouchMaintain,
+} from "@/Bundles/Core/Commands";
+import { Vector2 } from "@/Bundles/Core";
 
 class Controls {
   stack = [];

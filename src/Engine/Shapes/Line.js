@@ -1,6 +1,5 @@
-import RGB from "../RGB";
-import Vector2 from "../Vector2";
-import Draw from "./Draw";
+import { RGB, Vector2 } from "@/Bundles/Core";
+import { Draw } from "@/Bundles/Core/Shapes";
 
 class Line {
   #from;

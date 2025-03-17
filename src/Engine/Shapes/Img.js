@@ -1,5 +1,5 @@
-import TransformComponent from "../Components/TransformComponent";
-import RGB from "../RGB";
+import { RGB } from "@/Bundles/Core";
+import { TransformComponent } from "@/Bundles/Core/Components";
 
 class Img {
   #path;

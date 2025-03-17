@@ -1,4 +1,4 @@
-import Engine from "@/Engine/Engine";
+import { Engine } from "@/Bundles/Core";
 
 class Application {
   static activeProject;

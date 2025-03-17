@@ -4,13 +4,6 @@ import path from "path";
 export default defineConfig({
   resolve: {
     alias: {
-      "@projects": path.resolve(__dirname, "./projects"),
-      "@app": path.resolve(__dirname, "./src/Application"),
-      "@assets": path.resolve(__dirname, "./src/Engine/Assets"),
-      "@errors": path.resolve(__dirname, "./src/Application/Errors"),
-      "@error": path.resolve(__dirname, "./src/Application/Errors"),
-      "@core": path.resolve(__dirname, "./src/Engine/Core"),
-      "@lib": path.resolve(__dirname, "./src/Engine/Lib"),
       "@": path.resolve(__dirname, "./src"),
     },
   },
@@ -32,9 +25,38 @@ export default defineConfig({
   build: {
     lib: {
       name: "skava-engine",
-      fileName: (f) => `skava-engine.${f}.js`,
+      entry: {
+        Core: path.resolve(__dirname, "src/Bundles/Core/index.js"),
+        "Core/Commands": path.resolve(
+          __dirname,
+          "src/Bundles/Core/Commands.js"
+        ),
+        "Core/Shapes": path.resolve(__dirname, "src/Bundles/Core/Shapes.js"),
+        "Core/Components": path.resolve(
+          __dirname,
+          "src/Bundles/Core/Components.js"
+        ),
+        UI: path.resolve(__dirname, "src/Bundles/UI/index.js"),
+        "UI/Animations": path.resolve(
+          __dirname,
+          "src/Bundles/UI/Animations.js"
+        ),
+        "UI/Components": path.resolve(
+          __dirname,
+          "src/Bundles/UI/Components.js"
+        ),
+        "UI/Events": path.resolve(__dirname, "src/Bundles/UI/Events.js"),
+        Utils: path.resolve(__dirname, "src/Bundles/Utils/index.js"),
+        "Utils/Numeric": path.resolve(
+          __dirname,
+          "src/Bundles/Utils/Numeric.js"
+        ),
+        "Utils/Object": path.resolve(__dirname, "src/Bundles/Utils/Object.js"),
+        Errors: path.resolve(__dirname, "src/Bundles/Errors.js"),
+        Styles: path.resolve(__dirname, "src/Bundles/Styles.js"),
+      },
+      fileName: (format, entry) => `${entry}.${format}.js`,
       format: ["es", "cjs"],
-      entry: path.resolve(__dirname, "src/index.js"),
     },
     rollupOptions: {
       external: ["uuid"],

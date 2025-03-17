@@ -1,5 +1,5 @@
-import ImplementError from "@errors/ImplementError";
-import Component from "../Component";
+import { ImplementError } from "@/Bundles/Errors";
+import { Component } from "@/Bundles/Core";
 
 class Render2DComponent extends Component {
   constructor(options) {

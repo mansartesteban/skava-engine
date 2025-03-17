@@ -1,5 +1,5 @@
-import UIComponent from "../../Core/UIComponent";
-import DebugDivRenderer from "./DebugDivRenderer";
+import { UIComponent } from "@/Bundles/UI";
+import { DebugDivRenderer } from "@/Bundles/UI/Components";
 
 class DebugDiv extends UIComponent {
   setup() {

@@ -1,4 +1,4 @@
-import Time from "./Time";
+import { Time } from "@/Bundles/Utils";
 
 class Timer {
   #startTime;

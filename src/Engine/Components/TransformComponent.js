@@ -1,6 +1,4 @@
-import Component from "../Component";
-import Rotation from "../Rotation";
-import Vector2 from "../Vector2";
+import { Component, Rotation, Vector2 } from "@/Bundles/Core";
 
 class TransformComponent extends Component {
   position = new Vector2(0, 0);

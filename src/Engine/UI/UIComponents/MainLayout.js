@@ -1,5 +1,4 @@
-import UIComponent from "../Core/UIComponent";
-import UIStyle from "../Core/UIStyle";
+import { UIComponent, UIStyle } from "@/Bundles/UI";
 
 class MainLayout extends UIComponent {
   toProcess = [];

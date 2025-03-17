@@ -1,6 +1,5 @@
-import UndefinedError from "@/Application/Errors/UndefinedError";
-import Observer from "./Observer";
-import Entity from "./Entity";
+import { UndefinedError } from "@/Bundles/Errors";
+import { Observer, Entity } from "@/Bundles/Core";
 
 class EntityManager {
   static EVENTS = Object.freeze({

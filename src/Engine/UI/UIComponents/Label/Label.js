@@ -1,6 +1,5 @@
-import UIComponent from "../../Core/UIComponent";
-import UIStyle from "../../Core/UIStyle";
-import LabelRenderer from "./LabelRenderer";
+import { UIComponent, UIStyle } from "@/Bundles/UI";
+import { LabelRenderer } from "@/Bundles/UI/Components";
 
 class Label extends UIComponent {
   text;

@@ -1,5 +1,5 @@
-import UIComponent from "../../Core/UIComponent";
-import DivRenderer from "./DivRenderer";
+import { UIComponent } from "@/Bundles/UI";
+import { DivRenderer } from "@/Bundles/UI/Components";
 
 class Div extends UIComponent {
   setup() {

@@ -1,8 +1,5 @@
-import RGB from "@/Engine/RGB";
-import RoundSquare from "@/Engine/Shapes/RoundSquare";
-import UIRenderer from "../../Core/UIRenderer";
-import UIStyle from "../../Core/UIStyle";
-import Img from "@/Engine/Shapes/Img";
+import { RoundSquare, Img } from "@/Bundles/Core/Shapes";
+import { UIRenderer, UIStyle } from "@/Bundles/UI";
 
 class ButtonRenderer extends UIRenderer {
   shape;

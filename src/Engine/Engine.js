@@ -1,5 +1,5 @@
-import Observer from "./Observer";
-import Timer from "./Lib/Time/Timer";
+import { Observer } from "@/Bundles/Core";
+import { Timer } from "@/Bundles/Utils";
 
 const Events = {
   INITIALIZED: "INITIALIZED",

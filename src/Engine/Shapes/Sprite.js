@@ -1,7 +1,6 @@
-import TransformComponent from "../Components/TransformComponent";
-import Rotation from "../Rotation";
-import Vector2 from "../Vector2";
-import Img from "./Img";
+import { TransformComponent } from "@/Bundles/Core/Components";
+import { Rotation, Vector2 } from "@/Bundles/Core";
+import { Img } from "@/Bundles/Core/Shapes";
 
 class Sprite extends Img {
   #columns;

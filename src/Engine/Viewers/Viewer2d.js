@@ -1,5 +1,4 @@
-import Vector2 from "../Vector2";
-import CanvasRenderer from "../Renderers/CanvasRenderer";
+import { Vector2, CanvasRenderer } from "@/Bundles/Core";
 
 class Viewer2d {
   options;

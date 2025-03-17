@@ -1,6 +1,5 @@
-import UIRenderer from "../../Core/UIRenderer";
-import UIStyle from "../../Core/UIStyle";
-import Text from "@/Engine/Shapes/Text";
+import { UIRenderer, UIStyle } from "@/Bundles/UI";
+import { Text } from "@/Bundles/Core/Shapes";
 
 class LabelRenderer extends UIRenderer {
   shape;

@@ -1,10 +1,7 @@
-import WrongInstanceError from "@/Application/Errors/WrongInstanceError";
-import UIRenderer from "./UIRenderer";
-import Entity from "@/Engine/Entity";
-import TransformComponent from "@/Engine/Components/TransformComponent";
-import UIStyle from "./UIStyle";
-import Observer from "@/Engine/Observer";
-import Vector2 from "@/Engine/Vector2";
+import { WrongInstanceError } from "@/Bundles/Errors";
+import { UIRenderer, UIStyle } from "@/Bundles/UI";
+import { Observer, Entity, Vector2 } from "@/Bundles/Core";
+import { TransformComponent } from "@/Bundles/Core/Components";
 
 class UIComponent extends Entity {
   #renderer;

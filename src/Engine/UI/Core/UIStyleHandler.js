@@ -1,6 +1,6 @@
-import WrongInstanceError from "@/Application/Errors/WrongInstanceError";
-import UIStyle from "./UIStyle";
-import Vector2 from "@/Engine/Vector2";
+import { WrongInstanceError } from "@/Bundles/Errors";
+import { UIStyle } from "@/Bundles/UI";
+import { Vector2 } from "@/Bundles/Core";
 
 class UIStyleHandler {
   #component;

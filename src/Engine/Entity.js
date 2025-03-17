@@ -1,7 +1,6 @@
-import Component from "./Component";
+import { Component, Observer } from "@/Bundles/Core";
 import { v4 as uuid } from "uuid";
-import TransformComponent from "./Components/TransformComponent";
-import Observer from "./Observer";
+import { TransformComponent } from "@/Bundles/Core/Components";
 
 class Entity {
   uuid = uuid();

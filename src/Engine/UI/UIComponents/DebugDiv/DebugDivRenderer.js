@@ -1,6 +1,5 @@
-import RoundSquare from "@/Engine/Shapes/RoundSquare";
-import UIRenderer from "../../Core/UIRenderer";
-import UIStyle from "../../Core/UIStyle";
+import { RoundSquare } from "@/Bundles/Core/Shapes";
+import { UIRenderer, UIStyle } from "@/Bundles/UI";
 
 class DebugDivRenderer extends UIRenderer {
   shape;

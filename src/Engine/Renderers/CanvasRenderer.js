@@ -1,12 +1,11 @@
-import Renderer from "./Renderer"
+import { Renderer } from "@/Bundles/Core";
 
 class CanvasRenderer extends Renderer {
-  
-    options;
-    domElement;
-  
+  options;
+  domElement;
+
   constructor(options) {
-    super()
+    super();
     this.options = options;
     this.createDomElement();
   }
@@ -16,11 +15,10 @@ class CanvasRenderer extends Renderer {
   }
 
   createDomElement() {
-    this.domElement = document.createElement("canvas")
-    this.domElement.width = this.options.size.x
-    this.domElement.height = this.options.size.y
+    this.domElement = document.createElement("canvas");
+    this.domElement.width = this.options.size.x;
+    this.domElement.height = this.options.size.y;
   }
-
 }
 
 export default CanvasRenderer;

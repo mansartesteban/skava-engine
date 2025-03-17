@@ -1,5 +1,5 @@
-import RoundSquare from "@/Engine/Shapes/RoundSquare";
-import UIRenderer from "../../Core/UIRenderer";
+import { RoundSquare } from "@/Bundles/Core/Shapes";
+import { UIRenderer } from "@/Bundles/UI";
 
 class CardRenderer extends UIRenderer {
   shape = new RoundSquare();

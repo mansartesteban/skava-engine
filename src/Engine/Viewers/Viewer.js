@@ -1,4 +1,4 @@
-import ImplementError from "@errors/ImplementError";
+import { ImplementError } from "@/Bundles/Errors";
 
 class Viewer {
   options;

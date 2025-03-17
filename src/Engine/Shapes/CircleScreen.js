@@ -1,6 +1,5 @@
-import Rotation from "../Rotation";
-import Vector2 from "../Vector2";
-import Draw from "./Draw";
+import { Rotation, Vector2 } from "@/Bundles/Core";
+import { Draw } from "@/Bundles/Core/Shapes";
 
 class CircleScreen {
   #position;

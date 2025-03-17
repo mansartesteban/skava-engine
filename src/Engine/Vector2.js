@@ -1,5 +1,5 @@
 import { clamp } from "./Lib/Numeric";
-import Rotation from "./Rotation";
+import { Rotation } from "@/Bundles/Core";
 
 class Vector2 {
   static X = new Vector2(1, 0);

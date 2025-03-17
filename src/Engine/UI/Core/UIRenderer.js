@@ -1,4 +1,4 @@
-import ImplementError from "@/Application/Errors/ImplementError";
+import { ImplementError } from "@/Bundles/Errors";
 
 class UIRenderer {
   uiComponent;

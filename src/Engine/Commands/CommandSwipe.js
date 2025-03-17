@@ -1,5 +1,5 @@
-import ImplementError from "@errors/ImplementError";
-import Command from "./Command";
+import { ImplementError } from "@/Bundles/Errors";
+import { Command } from "@/Bundles/Core/Commands";
 
 class CommandSwipe extends Command {
   execute(...parameters) {

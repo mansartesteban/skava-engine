@@ -8,10 +8,10 @@
     "emitDeclarationOnly": true,
     "baseUrl": "./",
     "paths": {
-      "@errors/*": ["src/Application/Errors/*"],
       "@/*": ["src/*"]
     },
-    "preserveSymlinks": true
+    "preserveSymlinks": true,
+    "moduleResolution": "bundler"
   },
   "exclude": ["node_modules"],
   "include": ["src/**/*.js"]

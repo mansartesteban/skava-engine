@@ -1,4 +1,4 @@
-import CommandClick from "@/Engine/Commands/CommandClick";
+import { CommandClick } from "@/Bundles/Core/Commands";
 
 class OnClick extends CommandClick {
   constructor(elements) {
