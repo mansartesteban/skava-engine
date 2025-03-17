@@ -1,0 +1,1 @@
+{"version":3,"file":"UIAnimation-BRhJ4eRf.mjs","sources":["../src/Engine/UI/Core/UIAnimation.js"],"sourcesContent":["import { Component } from \"@/Bundles/Core\";\r\n\r\nclass UIAnimation extends Component {}\r\nexport default UIAnimation;\r\n"],"names":[],"mappings":";;AAEA,MAAM,oBAAoB,UAAU;AAAA;"}
