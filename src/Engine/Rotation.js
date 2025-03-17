@@ -1,4 +1,4 @@
-import { degreesToRadians, radiansToDegrees } from "./Lib/Numeric";
+import { degreesToRadians, radiansToDegrees } from "@/Bundles/Utils/Numeric";
 
 /**
  * A helper class which angle rotation (i.e. angle) and simplify conversion to radians or degrees

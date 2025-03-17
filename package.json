@@ -7,10 +7,70 @@
   "style": "./dist/index.css",
   "types": "./dist/index.d.ts",
   "exports": {
-    "./core": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/skava-engine.es.js",
-      "require": "./dist/skava-engine.umd.js"
+    "./Core": {
+      "types": "./dist/Bundles/Core/index.d.ts",
+      "import": "./dist/Core.es.js",
+      "require": "./dist/Core.cjs.js"
+    },
+    "./Core/Commands": {
+      "types": "./dist/Bundles/Core/Commands.d.ts",
+      "import": "./dist/Core/Commands.es.js",
+      "require": "./dist/Core/Commands.cjs.js"
+    },
+    "./Core/Components": {
+      "types": "./dist/Bundles/Core/Components.d.ts",
+      "import": "./dist/Core/Components.es.js",
+      "require": "./dist/Core/Components.cjs.js"
+    },
+    "./Core/Shapes": {
+      "types": "./dist/Bundles/Core/Shapes.d.ts",
+      "import": "./dist/Core/Shapes.es.js",
+      "require": "./dist/Core/Shapes.cjs.js"
+    },
+    "./UI": {
+      "types": "./dist/Bundles/UI/index.d.ts",
+      "import": "./dist/UI.es.js",
+      "require": "./dist/UI.cjs.js"
+    },
+    "./UI/Animations": {
+      "types": "./dist/Bundles/UI/Animations.d.ts",
+      "import": "./dist/UI/Animations.es.js",
+      "require": "./dist/UI/Animations.cjs.js"
+    },
+    "./UI/Components": {
+      "types": "./dist/Bundles/UI/Components.d.ts",
+      "import": "./dist/UI/Components.es.js",
+      "require": "./dist/UI/Components.cjs.js"
+    },
+    "./UI/Events": {
+      "types": "./dist/Bundles/UI/Events.d.ts",
+      "import": "./dist/UI/Events.es.js",
+      "require": "./dist/UI/Events.cjs.js"
+    },
+    "./Utils": {
+      "types": "./dist/Bundles/Utils/index.d.ts",
+      "import": "./dist/Utils.es.js",
+      "require": "./dist/Utils.cjs.js"
+    },
+    "./Utils/Numeric": {
+      "types": "./dist/Bundles/Utils/Numeric.d.ts",
+      "import": "./dist/Utils/Numeric.es.js",
+      "require": "./dist/Utils/Numeric.cjs.js"
+    },
+    "./Utils/Object": {
+      "types": "./dist/Bundles/Utils/Object.d.ts",
+      "import": "./dist/Utils/Object.es.js",
+      "require": "./dist/Utils/Object.cjs.js"
+    },
+    "./Errors": {
+      "types": "./dist/Bundles/Errors.d.ts",
+      "import": "./dist/Errors.es.js",
+      "require": "./dist/Errors.cjs.js"
+    },
+    "./Styles": {
+      "types": "./dist/Bundles/Utils/Styles.d.ts",
+      "import": "./dist/Styles.es.js",
+      "require": "./dist/Styles.cjs.js"
     }
   },
   "files": [

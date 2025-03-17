@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const g=t=>{let s=Object.getPrototypeOf(t),r=Object.getOwnPropertyDescriptors(s);return Object.keys(r).filter(e=>typeof r[e].get=="function").reduce((e,o)=>(e[o]=t[o],e),{})};exports.getProperties=g;

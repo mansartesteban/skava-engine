@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const t=require("../UIAnimation-DCWGtZHx.js");require("../Time-DqDcjPhP.js");require("uuid");require("../Vector2-3guUrHSy.js");class i extends t.UIAnimation{loop(r,e){this.entity.transform.rotation.setAngle(Math.sin(e/50)/10,!0)}}exports.ShakeAnimation=i;

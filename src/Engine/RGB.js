@@ -1,4 +1,4 @@
-import { clamp } from "./Lib/Numeric";
+import { clamp } from "@/Bundles/Utils/Numeric";
 
 /**
  * A helper class to handle colors with rgba channels

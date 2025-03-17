@@ -1,4 +1,4 @@
-import { clamp } from "./Lib/Numeric";
+import { clamp } from "@/Bundles/Utils/Numeric";
 import { Rotation } from "@/Bundles/Core";
 
 class Vector2 {

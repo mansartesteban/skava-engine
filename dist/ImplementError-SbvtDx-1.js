@@ -1,0 +1,1 @@
+"use strict";const t={IMPLEMENT:"You must implement '%1' method in classes which extends '%2'."};class m extends Error{constructor(e,s){let r=t.IMPLEMENT.replace("%1",e).replace("%2",s);super(r),this.name=self.toString()}}exports.ImplementError=m;
