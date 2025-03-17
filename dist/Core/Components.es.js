@@ -1,8 +1,7 @@
 import { I as ImplementError } from "../ImplementError-BSFja-GU.mjs";
-import { C as Component } from "../Vector2-Dy-12kp6.mjs";
+import { C as Component } from "../Vector2-BXEmxqj7.mjs";
 import "../Time-D6jb6SoV.mjs";
-import "uuid";
-import { T } from "../TransformComponent-bBQZJGxr.mjs";
+import { T } from "../TransformComponent-Wh2kRWxM.mjs";
 class Render2DComponent extends Component {
   constructor(options) {
     super();

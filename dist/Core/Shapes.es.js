@@ -18,12 +18,11 @@ var __privateWrapper = (obj, member, setter, getter) => ({
 });
 var _position, _radius, _color, _angle, _direction, _options, _position2, _radius2, _color2, _angle2, _direction2, _from, _to, _color3, _thickness, _frame, _from2, _to2, _color4, _dashes, _thickness2, _options2, _points, _color5, _dashes2, _thickness3, _columns, _rows, _count, _scale, _current, _current2, _position3, _size, _color6;
 import "../Time-D6jb6SoV.mjs";
-import "uuid";
-import { V as Vector2, R as RGB, a as Rotation } from "../Vector2-Dy-12kp6.mjs";
-import { D as Draw, I as Img } from "../Text-hadv7THv.mjs";
-import { R, T } from "../Text-hadv7THv.mjs";
+import { V as Vector2, R as RGB, a as Rotation } from "../Vector2-BXEmxqj7.mjs";
+import { D as Draw, I as Img } from "../Text-D3wvtlzW.mjs";
+import { R, T } from "../Text-D3wvtlzW.mjs";
 import { clamp } from "../Utils/Numeric.es.js";
-import { T as TransformComponent } from "../TransformComponent-bBQZJGxr.mjs";
+import { T as TransformComponent } from "../TransformComponent-Wh2kRWxM.mjs";
 class Circle {
   constructor(position = new Vector2(), radius = 1, color = new RGB(), angle = null, direction = null, options = {}) {
     __privateAdd(this, _position);

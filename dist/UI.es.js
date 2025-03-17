@@ -8,13 +8,12 @@ var __accessCheck = (obj, member, msg) => member.has(obj) || __typeError("Cannot
 var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
 var __privateAdd = (obj, member, value) => member.has(obj) ? __typeError("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
 var _uiComponents;
-import { U } from "./UIAnimation-CD5YFu-5.mjs";
-import { M as MainLayout, U as UIStyle, a as UIComponent } from "./UIStyleHandler-BrxVR-qc.mjs";
-import { b, c } from "./UIStyleHandler-BrxVR-qc.mjs";
+import { U } from "./UIAnimation-BRhJ4eRf.mjs";
+import { M as MainLayout, U as UIStyle, a as UIComponent } from "./UIStyleHandler-Dopq5YvR.mjs";
+import { b, c } from "./UIStyleHandler-Dopq5YvR.mjs";
 import "./Time-D6jb6SoV.mjs";
-import "uuid";
-import { C as Controls } from "./Controls-COyvZOen.mjs";
-import { R as RGB } from "./Vector2-Dy-12kp6.mjs";
+import { C as Controls } from "./Controls-DExq5fSR.mjs";
+import { R as RGB } from "./Vector2-BXEmxqj7.mjs";
 import { OnClick } from "./UI/Events.es.js";
 class UIManager {
   constructor(scene) {

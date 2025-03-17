@@ -1,9 +1,8 @@
 "use strict";
 Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-const UIAnimation = require("../UIAnimation-B8xma3ES.js");
+const UIAnimation = require("../UIAnimation-yVq7yAVy.js");
 require("../Time-BnYKtbMg.js");
-require("uuid");
-require("../Vector2-BBtao3PE.js");
+require("../Vector2-CYfU2A-a.js");
 class ShakeAnimation extends UIAnimation.UIAnimation {
   loop(deltaTime, currentTime) {
     this.entity.transform.rotation.setAngle(

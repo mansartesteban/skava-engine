@@ -2,11 +2,10 @@ var __defProp = Object.defineProperty;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
 var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
 import "../Time-D6jb6SoV.mjs";
-import "uuid";
-import { R as RGB } from "../Vector2-Dy-12kp6.mjs";
-import { a as UIComponent, U as UIStyle, b as UIRenderer } from "../UIStyleHandler-BrxVR-qc.mjs";
-import { M } from "../UIStyleHandler-BrxVR-qc.mjs";
-import { R as RoundSquare, I as Img, T as Text } from "../Text-hadv7THv.mjs";
+import { R as RGB } from "../Vector2-BXEmxqj7.mjs";
+import { a as UIComponent, U as UIStyle, b as UIRenderer } from "../UIStyleHandler-Dopq5YvR.mjs";
+import { M } from "../UIStyleHandler-Dopq5YvR.mjs";
+import { R as RoundSquare, I as Img, T as Text } from "../Text-D3wvtlzW.mjs";
 class Button extends UIComponent {
   setup() {
     super.setup();

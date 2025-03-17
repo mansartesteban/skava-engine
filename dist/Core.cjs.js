@@ -11,14 +11,13 @@ var __privateAdd = (obj, member, value) => member.has(obj) ? __typeError("Cannot
 var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 var _activeCamera, _loopHasBeenWarned;
 Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-const Entity = require("./Entity-CxUl1btK.js");
+const Entity = require("./Entity-DhxiqaDW.js");
 require("./Time-BnYKtbMg.js");
 const Utils = require("./Utils.cjs.js");
-require("uuid");
-const Vector2 = require("./Vector2-BBtao3PE.js");
+const Vector2 = require("./Vector2-CYfU2A-a.js");
 const ImplementError = require("./ImplementError-1IS0II9w.js");
 const UndefinedError = require("./UndefinedError-CWfMhOd2.js");
-const Controls = require("./Controls-c5IWmUD1.js");
+const Controls = require("./Controls-DMlHKFg1.js");
 class Application {
   static start() {
     this.engine = new Engine();

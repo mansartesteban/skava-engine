@@ -20,11 +20,10 @@ var __privateWrapper = (obj, member, setter, getter) => ({
 var _position, _radius, _color, _angle, _direction, _options, _position2, _radius2, _color2, _angle2, _direction2, _from, _to, _color3, _thickness, _frame, _from2, _to2, _color4, _dashes, _thickness2, _options2, _points, _color5, _dashes2, _thickness3, _columns, _rows, _count, _scale, _current, _current2, _position3, _size, _color6;
 Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
 require("../Time-BnYKtbMg.js");
-require("uuid");
-const Vector2 = require("../Vector2-BBtao3PE.js");
-const Text = require("../Text-DcL__UJb.js");
+const Vector2 = require("../Vector2-CYfU2A-a.js");
+const Text = require("../Text-DxuZZ4pu.js");
 const Utils_Numeric = require("../Utils/Numeric.cjs.js");
-const TransformComponent = require("../TransformComponent-D_P9unOt.js");
+const TransformComponent = require("../TransformComponent-BRl5nHr1.js");
 class Circle {
   constructor(position = new Vector2.Vector2(), radius = 1, color = new Vector2.RGB(), angle = null, direction = null, options = {}) {
     __privateAdd(this, _position);

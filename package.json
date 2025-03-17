@@ -86,6 +86,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "uuid": "^11.1.0",
     "vite": "^6.2.2"
   },
   "devDependencies": {

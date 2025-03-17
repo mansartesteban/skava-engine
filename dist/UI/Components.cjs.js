@@ -4,10 +4,9 @@ var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { en
 var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
 Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
 require("../Time-BnYKtbMg.js");
-require("uuid");
-const Vector2 = require("../Vector2-BBtao3PE.js");
-const UIStyleHandler = require("../UIStyleHandler-fO7Zx0Oy.js");
-const Text = require("../Text-DcL__UJb.js");
+const Vector2 = require("../Vector2-CYfU2A-a.js");
+const UIStyleHandler = require("../UIStyleHandler-mtkXgKbg.js");
+const Text = require("../Text-DxuZZ4pu.js");
 class Button extends UIStyleHandler.UIComponent {
   setup() {
     super.setup();

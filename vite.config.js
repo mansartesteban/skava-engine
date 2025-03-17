@@ -60,8 +60,5 @@ export default defineConfig({
       fileName: (format, entry) => `${entry}.${format}.js`,
       format: ["es", "cjs"],
     },
-    rollupOptions: {
-      external: ["uuid"],
-    },
   },
 });

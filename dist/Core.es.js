@@ -9,15 +9,14 @@ var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read fr
 var __privateAdd = (obj, member, value) => member.has(obj) ? __typeError("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
 var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 var _activeCamera, _loopHasBeenWarned;
-import { O as Observer, E as Entity } from "./Entity-BOHIz7Zf.mjs";
+import { O as Observer, E as Entity } from "./Entity-7bmRFd6H.mjs";
 import "./Time-D6jb6SoV.mjs";
 import { Timer } from "./Utils.es.js";
-import "uuid";
-import { V as Vector2 } from "./Vector2-Dy-12kp6.mjs";
-import { C, R, a } from "./Vector2-Dy-12kp6.mjs";
+import { V as Vector2 } from "./Vector2-BXEmxqj7.mjs";
+import { C, R, a } from "./Vector2-BXEmxqj7.mjs";
 import { I as ImplementError } from "./ImplementError-BSFja-GU.mjs";
 import { U as UndefinedError } from "./UndefinedError-Lw1RlA1b.mjs";
-import { C as C2 } from "./Controls-COyvZOen.mjs";
+import { C as C2 } from "./Controls-DExq5fSR.mjs";
 class Application {
   static start() {
     this.engine = new Engine();

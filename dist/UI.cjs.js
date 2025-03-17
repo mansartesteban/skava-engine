@@ -10,12 +10,11 @@ var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read fr
 var __privateAdd = (obj, member, value) => member.has(obj) ? __typeError("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
 var _uiComponents;
 Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-const UIAnimation = require("./UIAnimation-B8xma3ES.js");
-const UIStyleHandler = require("./UIStyleHandler-fO7Zx0Oy.js");
+const UIAnimation = require("./UIAnimation-yVq7yAVy.js");
+const UIStyleHandler = require("./UIStyleHandler-mtkXgKbg.js");
 require("./Time-BnYKtbMg.js");
-require("uuid");
-const Controls = require("./Controls-c5IWmUD1.js");
-const Vector2 = require("./Vector2-BBtao3PE.js");
+const Controls = require("./Controls-DMlHKFg1.js");
+const Vector2 = require("./Vector2-CYfU2A-a.js");
 const UI_Events = require("./UI/Events.cjs.js");
 class UIManager {
   constructor(scene) {

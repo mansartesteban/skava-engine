@@ -1,10 +1,9 @@
 "use strict";
 Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
 const ImplementError = require("../ImplementError-1IS0II9w.js");
-const Vector2 = require("../Vector2-BBtao3PE.js");
+const Vector2 = require("../Vector2-CYfU2A-a.js");
 require("../Time-BnYKtbMg.js");
-require("uuid");
-const TransformComponent = require("../TransformComponent-D_P9unOt.js");
+const TransformComponent = require("../TransformComponent-BRl5nHr1.js");
 class Render2DComponent extends Vector2.Component {
   constructor(options) {
     super();
