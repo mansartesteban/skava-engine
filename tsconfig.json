@@ -2,14 +2,17 @@
   "compilerOptions": {
     "checkJs": true,
     "target": "ESNext",
+    "module": "ESNext",
+    "outDir": "./dist",
+    "declaration": true,
+    "emitDeclarationOnly": true,
     "baseUrl": "./",
     "paths": {
       "@errors/*": ["src/Application/Errors/*"],
-      "@/*": ["src/*"],
-      "@snake/*": ["Games/Snake/*"]
+      "@/*": ["src/*"]
     },
     "preserveSymlinks": true
   },
   "exclude": ["node_modules"],
-  "include": ["src/**/*.js", "Games/**/*.js"]
+  "include": ["src/**/*.js"]
 }
