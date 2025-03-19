@@ -4,7 +4,6 @@
   "description": "",
   "main": "./dist/skava-engine.umd.js",
   "module": "./dist/skava-engine.es.js",
-  "style": "./dist/index.css",
   "types": "./dist/index.d.ts",
   "exports": {
     "./Core": {
@@ -71,7 +70,8 @@
       "types": "./dist/Bundles/Utils/Styles.d.ts",
       "import": "./dist/Styles.es.js",
       "require": "./dist/Styles.cjs.js"
-    }
+    },
+    "./style.css": "./dist/skava-engine.css"
   },
   "files": [
     "dist"

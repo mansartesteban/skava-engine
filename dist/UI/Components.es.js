@@ -5,7 +5,7 @@ import "../Time-D6jb6SoV.mjs";
 import { R as RGB } from "../Vector2-BXEmxqj7.mjs";
 import { a as UIComponent, U as UIStyle, b as UIRenderer } from "../UIStyleHandler-Dopq5YvR.mjs";
 import { M } from "../UIStyleHandler-Dopq5YvR.mjs";
-import { R as RoundSquare, I as Img, T as Text } from "../Text-D3wvtlzW.mjs";
+import { I as Img, R as RoundSquare, T as Text } from "../Text-D3wvtlzW.mjs";
 class Button extends UIComponent {
   setup() {
     super.setup();
@@ -95,12 +95,6 @@ class ButtonRenderer extends UIRenderer {
   setup() {
     super.setup();
     this.style = this.uiComponent.getComponent(UIStyle);
-    this.shape = new RoundSquare(
-      this.uiComponent.transform.position,
-      this.uiComponent.transform.size,
-      this.style.borderRadius,
-      this.style.color
-    );
     this.shape = new Img("/button.png");
   }
   render(viewer) {

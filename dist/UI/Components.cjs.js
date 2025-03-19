@@ -96,12 +96,6 @@ class ButtonRenderer extends UIStyleHandler.UIRenderer {
   setup() {
     super.setup();
     this.style = this.uiComponent.getComponent(UIStyleHandler.UIStyle);
-    this.shape = new Text.RoundSquare(
-      this.uiComponent.transform.position,
-      this.uiComponent.transform.size,
-      this.style.borderRadius,
-      this.style.color
-    );
     this.shape = new Text.Img("/button.png");
   }
   render(viewer) {

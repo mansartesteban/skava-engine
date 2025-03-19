@@ -8,12 +8,12 @@ class ButtonRenderer extends UIRenderer {
   setup() {
     super.setup();
     this.style = this.uiComponent.getComponent(UIStyle);
-    this.shape = new RoundSquare(
-      this.uiComponent.transform.position,
-      this.uiComponent.transform.size,
-      this.style.borderRadius,
-      this.style.color
-    );
+    // this.shape = new RoundSquare(
+    //   this.uiComponent.transform.position,
+    //   this.uiComponent.transform.size,
+    //   this.style.borderRadius,
+    //   this.style.color
+    // );
 
     this.shape = new Img("/button.png");
   }
