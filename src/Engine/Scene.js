@@ -14,7 +14,10 @@ class Scene {
   }
 
   createViewer(mountOn, options) {
-    let app = document.querySelector(mountOn);
+    let app =
+      mountOn instanceof HTMLElement
+        ? mountOn
+        : document.querySelector(mountOn);
     this.viewer = new Viewer2d(app, {
       size: new Vector2(window.innerWidth, window.innerHeight),
       ...options,

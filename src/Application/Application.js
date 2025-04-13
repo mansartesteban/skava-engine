@@ -12,8 +12,8 @@ class Application {
     });
   }
 
-  static loadProject(project) {
-    this.activeProject = new project();
+  static loadProject(project, options) {
+    this.activeProject = new project(options);
     this.engine.setProject(this.activeProject);
   }
 }

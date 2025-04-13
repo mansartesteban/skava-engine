@@ -24,8 +24,8 @@ class Application {
       resolve(true);
     });
   }
-  static loadProject(project) {
-    this.activeProject = new project();
+  static loadProject(project, options) {
+    this.activeProject = new project(options);
     this.engine.setProject(this.activeProject);
   }
 }
@@ -140,7 +140,7 @@ class Scene {
     this.entityManager = new EntityManager(this);
   }
   createViewer(mountOn, options) {
-    let app = document.querySelector(mountOn);
+    let app = mountOn instanceof HTMLElement ? mountOn : document.querySelector(mountOn);
     this.viewer = new Viewer2d(app, {
       size: new Vector2(window.innerWidth, window.innerHeight),
       ...options
